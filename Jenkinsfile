@@ -38,8 +38,7 @@ pipeline {
                 sh 'cp android/logo.png app/'
                 dir('app') {
                     sh 'cordova platform add android'
-                }
-                dir('app') {
+                    sh 'cordova plugin add cordova-plugin-device'
                     sh 'cordova build android'
                 }
                 sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/solefi/static/app.apk'
