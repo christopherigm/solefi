@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import * as M from 'materialize-css';
 
-const NavBar = () => {
+const NavBar = ( ) => {
+  const sideNavRef: any = useRef(null);
+
+  const closeSideNav = () => {
+    const sideNav = M.Sidenav.getInstance(sideNavRef.current);
+    sideNav.close();
+  };
 
   useEffect(() => {
-    M.AutoInit();
+    M.Sidenav.init(sideNavRef.current, {
+      edge: 'left'
+    });
   });
 
   return (
@@ -26,9 +34,15 @@ const NavBar = () => {
           </ul>
         </div>
       </nav>
-      <ul className='sidenav' id='mobile-demo'>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">Acerca</a></li>
+      <ul className='sidenav' id='mobile-demo'
+        ref={sideNavRef}
+        onClick={closeSideNav}>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>Acerca</Link>
+        </li>
       </ul>
     </>
   );
