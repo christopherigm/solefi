@@ -13,9 +13,12 @@ const CordovaDevice = () => {
   useEffect(() => {
     M.Collapsible.init(collapsibleRef.current, {});
     const w: any = window;
-    if ( w.device ) {
-      setDevice(w.device);
-    }
+    w.document.addEventListener('deviceready', () => {
+      M.toast({html: 'deviceready'});
+      if ( w.device ) {
+        setDevice(w.device);
+      }
+    }, false);
   });
 
   return (
