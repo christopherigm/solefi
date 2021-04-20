@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as M from 'materialize-css';
 
 const InputExamples = () => {
   const inputRef: any = useRef(null);
+  const [property, setProperty] = useState('');
 
   const showWindowProperty = ( ) => {
     const w: any = window;
-    M.toast({html: `${inputRef.current.value}: ${JSON.stringify(w[inputRef.current.value])}`});
+    setProperty(JSON.stringify(w[inputRef.current.value]));
+    M.toast({html: inputRef.current.value});
   };
 
   useEffect(() => {
@@ -52,6 +54,8 @@ const InputExamples = () => {
           <i className="material-icons">adb</i>
         </a>
       </div>
+
+      <p>Window: {property}</p>
     </>
   );
 };
