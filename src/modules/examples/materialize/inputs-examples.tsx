@@ -7,7 +7,7 @@ const InputExamples = () => {
 
   const displayToast = ( event: any ) => {
     const value = inputRef.current.value;
-    M.toast({html: value});
+    if ( value ) M.toast({html: value});
     const w: any = window;
     if ( w[value] ) {
       setDevice(w[value]);
