@@ -23,8 +23,7 @@ const ChartExample = () => {
   const myChart: any = useRef(null);
 
   useEffect(() => {
-    const myChartRef = myChart.current;
-    new Chart(myChartRef, {
+    new Chart(myChart.current, {
       type: 'line',
       data: data,
       options: { }

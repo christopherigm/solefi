@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as M from 'materialize-css';
 
 const InputExamples = () => {
   const inputRef: any = useRef(null);
-  const [property, setProperty] = useState('');
 
-  const showWindowProperty = ( ) => {
-    const w: any = window;
-    setProperty(JSON.stringify(w[inputRef.current.value]));
+  const displayToast = ( event: any ) => {
     M.toast({html: inputRef.current.value});
+    inputRef.current.value = '';
+    event.preventDefault();
   };
 
   useEffect(() => {
@@ -17,12 +16,14 @@ const InputExamples = () => {
 
   return (
     <>
-      <div className='input-field col s6'>
-        <input id='input_txt' type='text' className='validate' ref={inputRef}/>
-        <label htmlFor='input_txt'>Property</label>
-      </div>
+      <form onSubmit={displayToast}>
+        <div className='input-field col s6'>
+          <input id='input_txt' type='text' className='validate' ref={inputRef}/>
+          <label htmlFor='input_txt'>Property</label>
+        </div>
+      </form>
 
-      <a className='waves-effect waves-light btn' onClick={showWindowProperty}>
+      <a className='waves-effect waves-light btn' onClick={displayToast}>
         <i className='material-icons left'>cloud</i>
         <span>Check</span>
       </a>
@@ -54,8 +55,6 @@ const InputExamples = () => {
           <i className="material-icons">adb</i>
         </a>
       </div>
-
-      <p>Window: {property}</p>
     </>
   );
 };
