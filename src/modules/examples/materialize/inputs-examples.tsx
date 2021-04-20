@@ -1,7 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import * as M from 'materialize-css';
 
 const InputExamples = () => {
+  const inputRef: any = useRef(null);
+
+  const showWindowProperty = ( ) => {
+    const w: any = window;
+    M.toast({html: `${inputRef.current.value}: ${w[inputRef.current.value]}`});
+  };
 
   useEffect(() => {
     M.AutoInit();
@@ -9,18 +15,17 @@ const InputExamples = () => {
 
   return (
     <>
-      <br /><br /><br />
-      <a className='waves-effect waves-light btn'>
+      <div className='input-field col s6'>
+        <input id='input_txt' type='text' className='validate' ref={inputRef}/>
+        <label htmlFor='input_txt'>Property</label>
+      </div>
+
+      <a className='waves-effect waves-light btn' onClick={showWindowProperty}>
         <i className='material-icons left'>cloud</i>
-        <span>button</span>
+        <span>Check</span>
       </a>
 
       <br /><br /><br />
-      <div className='input-field col s6'>
-        <input id='first_name' type='text' className='validate' width='200px'/>
-        <label htmlFor='first_name'>First Name</label>
-      </div>
-
       <div className='switch'>
         <label>
           Off
@@ -39,6 +44,13 @@ const InputExamples = () => {
           <option value='3'>Option 3</option>
         </select>
         <label>Materialize Select</label>
+      </div>
+
+      <div className="fixed-action-btn">
+        <a href='/static/app.apk' target='_blank'
+          className="btn-floating btn-large waves-effect waves-light green darken-1">
+          <i className="material-icons">adb</i>
+        </a>
       </div>
     </>
   );
