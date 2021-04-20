@@ -1,10 +1,16 @@
 import NavBar from 'src/modules/nav-bar/nav-bar';
+import ChartExample from 'src/modules/examples/chart-example/chart-example';
+import InputExamples from 'src/modules/examples/materialize/inputs-examples';
 
 const Home = () => {
   return (
     <>
       <NavBar />
-      Home
+      <div className="container">
+        Home
+        <InputExamples />
+        <ChartExample />
+      </div>
     </>
   );
 };

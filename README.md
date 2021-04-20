@@ -9,13 +9,11 @@
 ```sh
 $ npm i
 ```
-### 2. Build CSS and JS
+### 2. Run
 ```sh
-[Unix like] $ npm run build
-[Win] $ npm run win-build
+$ npm run start
 ```
-### 2. Run Server
+### 3. Build
 ```sh
-[Unix like] $ npm run start
-[Win] $ npm run win-start
+$ npm run build
 ```
