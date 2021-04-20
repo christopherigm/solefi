@@ -5,6 +5,12 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import {
+  Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController,
+  PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale,
+  RadialLinearScale, TimeScale, TimeSeriesScale, Filler, Legend, Title, Tooltip
+} from 'chart.js';
+
 import Home from 'src/pages/home/home';
 import About from 'src/pages/about/about';
 // import reportWebVitals from './reportWebVitals';
@@ -29,3 +35,9 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
+
+Chart.register(
+  ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController,
+  PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale,
+  RadialLinearScale, TimeScale, TimeSeriesScale, Filler, Legend, Title, Tooltip
+);
