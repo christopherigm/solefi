@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <NavBar />
       <div className="container">
-        Home
+        Home Section
         <InputExamples />
         <ChartExample />
       </div>

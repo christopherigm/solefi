@@ -19,7 +19,6 @@ const data = {
   }]
 };
 
-
 const ChartExample = () => {
   const myChart: any = useRef(null);
 
