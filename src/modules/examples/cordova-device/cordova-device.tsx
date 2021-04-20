@@ -14,7 +14,6 @@ const CordovaDevice = () => {
     M.Collapsible.init(collapsibleRef.current, {});
     const w: any = window;
     w.document.addEventListener('deviceready', () => {
-      M.toast({html: 'deviceready'});
       if ( w.device ) {
         setDevice(w.device);
       }
@@ -42,7 +41,6 @@ const CordovaDevice = () => {
           <div className='collapsible-header'><i className='material-icons'>memory</i>UUID</div>
           <div className='collapsible-body'>
             <span>{ device.uuid ? device.uuid : 'none' }</span>
-            <span>{ device ? JSON.stringify(device) : 'none' }</span>
           </div>
         </li>
       </ul>
