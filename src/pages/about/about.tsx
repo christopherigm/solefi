@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
       <NavBar />
-      About
+      About Section
     </>
   );
 };
