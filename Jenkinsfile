@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Check') {
             steps {
-                sh 'npm --version'
                 sh 'npm i'
             }
         }
@@ -20,9 +19,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'rm -rf /var/www/apps/staging/pruebas'
+                sh 'rm -rf /var/www/apps/staging/solefi'
                 sh 'cp -r build /var/www/apps/staging/'
-                sh 'mv /var/www/apps/staging/build /var/www/apps/staging/pruebas'
+                sh 'mv /var/www/apps/staging/build /var/www/apps/staging/solefi'
             }
         }
         stage('App') {
@@ -35,15 +34,15 @@ pipeline {
                 sh './android/prepare-index.sh'
                 sh 'rm app/config.xml'
                 sh 'cp android/config.xml app/'
-                sh 'cp android/logo.png app/'
+                sh 'cp android/logo.svg app/'
                 dir('app') {
                     sh 'cordova platform add android'
                 }
                 dir('app') {
                     sh 'cordova build android'
                 }
-                sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/pruebas/static/app.apk'
-                sh 'chmod 777 /var/www/apps/staging/pruebas/static/app.apk'
+                sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/solefi/static/app.apk'
+                sh 'chmod 777 /var/www/apps/staging/solefi/static/app.apk'
             }
         }
     }
