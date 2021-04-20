@@ -1,0 +1,11 @@
+{
+  "verbose": true,
+  "ignore": [
+    "*.test.js",
+    "*.css",
+    "log",
+    "node_modules",
+    "static",
+    "templates"
+  ]
+}

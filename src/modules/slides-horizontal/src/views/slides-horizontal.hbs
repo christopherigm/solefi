@@ -1,0 +1,18 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{#each slides}}
+      {{> slides-horizontal-partials/item 
+        image=this.image
+      }}
+    {{/each}}
+  </div>
+  <i class="triangle"></i>
+  <div class="description white z-depth-3" id="description">
+    <p id="message_element">
+      \{{current.message}}
+    </p>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button swiper-button-prev"></div>
+  <div class="swiper-button swiper-button-next"></div>
+</div>

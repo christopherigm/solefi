@@ -1,0 +1,15 @@
+{
+  "env": {
+    "production": false,
+    "port": 4001,
+    "host": "http://web.stagingiguzman.com.mx",
+    "api_base": "http://api.stagingiguzman.com.mx/v1/"
+  },
+  "meta": {
+    "title": "iGuzman Web App",
+    "description": "Simple NodeJS Module",
+    "type": "Website",
+    "keywords": "Website, NodeJS Module, NodeJS",
+    "image": ""
+  }
+}

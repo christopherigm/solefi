@@ -1,0 +1,25 @@
+echo "================================================="
+echo "Starting deployment ".`date`
+
+# Enter into directory
+cd /var/www/apps/master/iguzman-webapp/
+
+# Download changes from Repo
+/usr/bin/sudo -u christopher -H git checkout .
+/usr/bin/sudo -u christopher -H git pull origin master
+echo 'password' | sudo -S chmod 777 -R /var/www/apps/master/iguzman-webapp/
+
+# Install dependences
+echo 'password' | sudo -S rm -rf node_modules
+npm i --production
+
+# Patch Dist Version
+node patch-dist-version.js
+
+# Build front dependences
+export NODE_ENV=master && node ./node_modules/webpack/bin/webpack.js -p
+
+# Restart supervisor instance
+echo 'password' | sudo -S supervisorctl restart iguzman_webapp_master
+
+echo "Done"

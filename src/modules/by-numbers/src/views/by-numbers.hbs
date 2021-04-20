@@ -1,0 +1,12 @@
+<section class="by-numbers container" id="about">
+  <h4 class="center-align blue-text text-lighten-1">Solefi en números</h4>
+  <div class="row">
+    {{#each numbers}}
+      {{> by-numbers-partials/item
+        left=this.left
+        image=this.image
+        description=this.description
+      }}
+    {{/each}}
+  </div>
+</section>

@@ -1,0 +1,11 @@
+node_modules/
+npm-debug.log
+static/dist
+.DS_Store
+.nyc_output
+coverage
+
+src/deploy/qa.sh
+src/deploy/staging.sh
+src/deploy/master.sh
+version.js

@@ -1,0 +1,17 @@
+[
+  {
+    "left": true,
+    "description": "El mejor equipo multidiciplinario en Solefi",
+    "image": "/static/by-numbers/team.jpg"
+  },
+  {
+    "left": false,
+    "description": "Más de 20 proyectos exitosos, más de 10 clientes satisfechos",
+    "image": "/static/by-numbers/clients.jpg"
+  },
+  {
+    "left": true,
+    "description": "Tu puedes hacer esto, sin preocuparte por tus finanzas, basta con dar un click en nuestra Plataforma.",
+    "image": "/static/by-numbers/relax.jpg"
+  }
+]

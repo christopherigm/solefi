@@ -1,0 +1,36 @@
+<section class="contact-buttons" id="contact">
+  <div class="container">
+    <h4 class="center-align white-text text-lighten-1">
+      {{company_name}} a un click
+    </h4>
+    <div class="row">
+      <div class="hide-on-med-and-up">
+        {{> contact-buttons-partials/item
+          type="whats_app"
+          icon="perm_phone_msg"
+          title="Mándanos un WhatsApp al"
+          value="5215614168548"
+          body_message="Hola estoy interesado en sus servicios"
+        }}
+      </div>
+      {{> contact-buttons-partials/item
+        type="location"
+        icon="location_on"
+        title="Visítanos en"
+        value="Casas Grandes 245, Colonia Narvarte Oriente, 03023 Benito Juarez, Distrito Federal, Mexico."
+      }}
+      {{> contact-buttons-partials/item
+        type="phone"
+        icon="local_phone"
+        title="Llámanos al"
+        value="+52 1 56 1416 8548"
+      }}
+      {{> contact-buttons-partials/item
+        type="email"
+        icon="email"
+        title="Escríbenos a"
+        value="hola@solefi.com.mx"
+      }}
+    </div>
+  </div>
+</section>

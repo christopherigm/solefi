@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Asesoría personalizada",
+    "icon": "assignment_ind",
+    "color": "cyan-text text-lighten-1",
+    "description": "Contamos con el mejor equipo que te brindará asesoría en cualquier momento."
+  },
+  {
+    "title": "Contabilidad electrónica",
+    "icon": "desktop_mac",
+    "color": "amber-text text-lighten-1",
+    "description": "Clasificamos tus ingresos y gastos, te entregamos reportes financieros y hacemos el envío de tu contabilidad."
+  },
+  {
+    "title": "Impuestos",
+    "icon": "gavel",
+    "color": "deep-orange-text text-lighten-1",
+    "description": "Regularizamos tu situación fiscal, Cumplimos con todas tus obligaciones ante el SAT en tiempo y forma."
+  },
+  {
+    "title": "Nómina",
+    "icon": "attach_money",
+    "color": "deep-purple-text text-lighten-1",
+    "description": "Calculamos y te apoyamos a administrar tu nómina (Tramites en el IMSS, Impuesto sobre nómina, timbrado de la misma)."
+  },
+  {
+    "title": "Plataforma",
+    "icon": "important_devices",
+    "color": "green-text text-lighten-1",
+    "description": "Consulta toda tu información desde cualquier dispositivo móvil, en tiempo real. Descarga todas tus facturas y emite reportes al instante."
+  },
+  {
+    "title": "Facturación ilimitada",
+    "icon": "sync",
+    "color": "blue-text text-lighten-1",
+    "description": "Timbra y personaliza tus factura cuando lo necesites."
+  }
+]

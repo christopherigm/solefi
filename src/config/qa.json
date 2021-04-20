@@ -1,0 +1,15 @@
+{
+  "env": {
+    "production": false,
+    "port": 4000,
+    "host": "http://web.qa.iguzman.com.mx",
+    "api_base": "http://api.qa.iguzman.com.mx/v1/"
+  },
+  "meta": {
+    "title": "iGuzman Web App",
+    "description": "Simple NodeJS Module",
+    "type": "Website",
+    "keywords": "Website, NodeJS Module, NodeJS",
+    "image": ""
+  }
+}

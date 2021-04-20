@@ -1,0 +1,22 @@
+<div class="col s12 m4 contact-buttons__item--wrapper">
+  {{#equal type "location"}}
+  <a class="contact-buttons__item" target="_blank" href="https://maps.google.com/?q={{value}}">
+  {{/equal}}
+  {{#equal type "phone"}}
+  <a class="contact-buttons__item" href="tel:{{value}}">
+  {{/equal}}
+  {{#equal type "email"}}
+  <a class="contact-buttons__item" target="_blank" href="mailto:{{value}}">
+  {{/equal}}
+  {{#equal type "whats_app"}}
+  <a class="contact-buttons__item" target="_blank"
+    href="https://api.whatsapp.com/send?phone={{value}}&text={{body_message}}">
+  {{/equal}}
+    <i class="material-icons contact-buttons__icon">{{icon}}</i>
+    <p class="contact-buttons__title">{{title}}</p>
+    <span class="contact-buttons__description">
+      {{value}}
+    </span>
+    <b class="contact-buttons__description">Click Aquí</b>
+  </a>
+</div>
