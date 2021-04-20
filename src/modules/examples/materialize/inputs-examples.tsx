@@ -6,7 +6,8 @@ const InputExamples = () => {
 
   const showWindowProperty = ( ) => {
     const w: any = window;
-    M.toast({html: `${inputRef.current.value}: ${w[inputRef.current.value]}`});
+    M.toast({html: `${inputRef.current.value}: ${w.cordova[inputRef.current.value]}`});
+    M.toast({html: `${inputRef.current.value}: ${w.cordova.device[inputRef.current.value]}`});
   };
 
   useEffect(() => {
