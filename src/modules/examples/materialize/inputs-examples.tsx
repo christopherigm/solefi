@@ -1,17 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as M from 'materialize-css';
 
 const InputExamples = () => {
   const inputRef: any = useRef(null);
-  const [device, setDevice] = useState(null);
 
   const displayToast = ( event: any ) => {
     const value = inputRef.current.value;
     if ( value ) M.toast({html: value});
-    const w: any = window;
-    if ( w[value] ) {
-      setDevice(w[value]);
-    }
     inputRef.current.value = '';
     event.preventDefault();
   };
@@ -33,8 +28,6 @@ const InputExamples = () => {
         <i className='material-icons left'>cloud</i>
         <span>Check</span>
       </a>
-
-      <span>{JSON.stringify(device)}</span>
 
       <br /><br /><br />
       <div className='switch'>
