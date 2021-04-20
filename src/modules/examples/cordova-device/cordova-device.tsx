@@ -6,7 +6,8 @@ const CordovaDevice = () => {
   const [device, setDevice] = useState({
     platform: '',
     model: '',
-    uuid: ''
+    uuid: '',
+    memory: ''
   });
 
   useEffect(() => {
@@ -14,7 +15,6 @@ const CordovaDevice = () => {
     const w: any = window;
     if ( w.device ) {
       setDevice(w.device);
-      console.log(device);
     }
   });
 
@@ -39,6 +39,7 @@ const CordovaDevice = () => {
           <div className='collapsible-header'><i className='material-icons'>memory</i>UUID</div>
           <div className='collapsible-body'>
             <span>{ device.uuid ? device.uuid : 'none' }</span>
+            <span>{ device ? JSON.stringify(device) : 'none' }</span>
           </div>
         </li>
       </ul>

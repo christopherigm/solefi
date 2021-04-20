@@ -17,7 +17,7 @@ const NavBar = ( ) => {
   });
 
   return (
-    <>
+    <div className='navbar-fixed'>
       <nav>
         <div className='nav-wrapper'>
           <a href='#' className='brand-logo'>Logo</a>
@@ -44,7 +44,7 @@ const NavBar = ( ) => {
           <Link to='/about'>Acerca</Link>
         </li>
       </ul>
-    </>
+    </div>
   );
 };
 
