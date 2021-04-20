@@ -22,6 +22,7 @@ pipeline {
                 sh 'rm -rf /var/www/apps/staging/solefi'
                 sh 'cp -r build /var/www/apps/staging/'
                 sh 'mv /var/www/apps/staging/build /var/www/apps/staging/solefi'
+                sh 'cp -r deploy /var/www/apps/staging/solefi'
             }
         }
         stage('App') {
@@ -34,7 +35,7 @@ pipeline {
                 sh './android/prepare-index.sh'
                 sh 'rm app/config.xml'
                 sh 'cp android/config.xml app/'
-                sh 'cp android/logo.svg app/'
+                sh 'cp android/logo.png app/'
                 dir('app') {
                     sh 'cordova platform add android'
                 }
