@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as M from 'materialize-css';
 
-const NavBar = ( ) => {
+const NavBar = (): React.ReactElement => {
   const sideNavRef: any = useRef(null);
 
   const closeSideNav = () => {

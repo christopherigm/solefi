@@ -1,6 +1,7 @@
+import React from 'react';
 import NavBar from 'src/modules/nav-bar/nav-bar';
 
-const About = () => {
+const About = (): React.ReactElement => {
   return (
     <>
       <NavBar />

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as M from 'materialize-css';
 
-const InputExamples = () => {
+const InputExamples = (): React.ReactElement => {
   const inputRef: any = useRef(null);
 
   const displayToast = ( event: any ) => {

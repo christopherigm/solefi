@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as M from 'materialize-css';
 
-const CordovaDevice = () => {
+const CordovaDevice = (): React.ReactElement => {
   const collapsibleRef: any = useRef(null);
   const [device, setDevice] = useState({
     platform: '',
