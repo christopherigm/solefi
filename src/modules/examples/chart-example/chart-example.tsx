@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js';
 
 const labels = [
@@ -19,7 +19,7 @@ const data = {
   }]
 };
 
-const ChartExample = () => {
+const ChartExample = (): React.ReactElement => {
   const myChart: any = useRef(null);
 
   useEffect(() => {
