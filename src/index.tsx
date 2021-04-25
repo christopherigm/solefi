@@ -1,32 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom';
-import {
   Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController,
   PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale,
   RadialLinearScale, TimeScale, TimeSeriesScale, Filler, Legend, Title, Tooltip
 } from 'chart.js';
-
-import Home from 'src/pages/home/home';
-import About from 'src/pages/about/about';
+import Routes from 'src/routes';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/'>
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 );

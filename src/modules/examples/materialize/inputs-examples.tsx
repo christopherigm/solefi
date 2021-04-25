@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import * as M from 'materialize-css';
+import {
+  useSelector,
+  useDispatch
+} from 'react-redux';
+import SwitchDarkMode from 'src/redux/actions/platformOptions/switchDarkMode';
 
 const InputExamples = (): React.ReactElement => {
   const inputRef: any = useRef(null);
+  const dispatch = useDispatch();
+  const platformOptions = useSelector((state: any) => state.platformOptions);
 
   const displayToast = ( event: any ) => {
     const value = inputRef.current.value;
@@ -33,7 +40,11 @@ const InputExamples = (): React.ReactElement => {
       <div className='switch'>
         <label>
           Off
-          <input type='checkbox' />
+          <input type='checkbox'
+            checked={platformOptions.darkMode}
+            onChange={( e: any ) => {
+            dispatch(SwitchDarkMode(e.target.checked));
+          }}/>
           <span className='lever'></span>
           On
         </label>
@@ -46,6 +57,7 @@ const InputExamples = (): React.ReactElement => {
           <option value='1'>Option 1</option>
           <option value='2'>Option 2</option>
           <option value='3'>Option 3</option>
+          { platformOptions.darkMode ? <option>Dark Mode enabled</option> : '' }
         </select>
         <label>Materialize Select</label>
       </div>
