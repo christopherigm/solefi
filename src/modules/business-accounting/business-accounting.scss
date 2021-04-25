@@ -1,0 +1,15 @@
+@import 'materialize-css';
+
+.Title {
+  &__space {
+    display: block;
+  }
+  &__text {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.6em;
+    text-align: center;
+    @extend .blue-text;
+  }
+}
