@@ -1,0 +1,15 @@
+@import 'materialize-css';
+
+.Box {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 8px 10px rgba(177, 177, 177, 0.247);
+  display: block;
+  border-radius: 5px;
+  &__text {
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5em;
+    @extend .black-text
+  }
+}
