@@ -12,7 +12,11 @@ if ( process.env.NODE_ENV !== 'production' ) {
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
+  whitelist: [
+    'platformOptions',
+    'user'
+  ]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -27,3 +31,5 @@ const store = createStore(
 export const persistor = persistStore(store);
 
 export default store;
+
+// https://www.npmjs.com/package/redux-persist

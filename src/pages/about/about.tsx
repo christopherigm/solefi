@@ -7,7 +7,7 @@ const About = (): React.ReactElement => {
     <>
       <NavBar />
       About Section
-      <BusinessAccounting/>
+      <BusinessAccounting />
     </>
   );
 };
