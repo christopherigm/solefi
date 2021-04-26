@@ -1,0 +1,11 @@
+@import 'materialize-css';
+
+.Swiper {
+  display: block;
+
+  &__slide {
+    display: block;
+    height: 400px;
+    @extend .purple, .darken-3, .white-text;
+  }
+}
