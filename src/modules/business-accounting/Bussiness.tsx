@@ -5,7 +5,7 @@ const BusinessAccounting = (): React.ReactElement => {
   return (
     <div className='container'>
       <Title
-        text = 'Déjanos tu contabilidad, y ocúpate en lo que mejor sabes hacer: Tu negocio'/>
+        text = 'Nuestra Soluciones'/>
     </div>
   );
 };

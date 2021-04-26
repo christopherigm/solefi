@@ -1,5 +1,5 @@
 import React from 'react';
-import 'src/modules/business-accounting/business-accounting.scss';
+import 'src/modules/title/title.scss';
 
 const Title = (props: any): React.ReactElement => {
   return (
