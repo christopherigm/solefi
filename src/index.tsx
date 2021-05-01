@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from 'src/routes';
 import {
   Chart, ArcElement, LineElement, BarElement, PointElement, BarController, BubbleController, DoughnutController, LineController,
   PieController, PolarAreaController, RadarController, ScatterController, CategoryScale, LinearScale, LogarithmicScale,
   RadialLinearScale, TimeScale, TimeSeriesScale, Filler, Legend, Title, Tooltip
 } from 'chart.js';
 import SwiperCore, {
-  Navigation, Pagination, Scrollbar, A11y,
-  EffectFade, EffectCube
+  Navigation, Pagination, Scrollbar, A11y, Autoplay,
+  EffectFade, EffectCube, EffectFlip, EffectCoverflow, Thumbs
 } from 'swiper';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
@@ -15,12 +16,12 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/effect-cube/effect-cube.scss';
-import Routes from 'src/routes';
+import 'swiper/components/controller/controller.scss';
+import 'swiper/components/effect-coverflow/effect-coverflow.scss';
+import 'swiper/components/effect-cube/effect-cube.scss';
+import 'swiper/components/effect-fade/effect-fade.scss';
+import 'swiper/components/effect-flip/effect-flip.scss';
 // import reportWebVitals from './reportWebVitals';
-
-SwiperCore.use([
-  EffectFade, EffectCube
-]);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -41,4 +42,7 @@ Chart.register(
 );
 
 // https://swiperjs.com/demos
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+SwiperCore.use([
+  Navigation, Pagination, Scrollbar, A11y, Autoplay,
+  EffectFade, EffectCube, EffectFlip, EffectFlip, EffectCoverflow, Thumbs
+]);
