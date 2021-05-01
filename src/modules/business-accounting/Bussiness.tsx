@@ -11,4 +11,3 @@ const BusinessAccounting = (): React.ReactElement => {
 };
 
 export default BusinessAccounting;
-
