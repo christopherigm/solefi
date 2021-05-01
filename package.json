@@ -38,7 +38,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "linter:styles": "stylelint src/**/*scss"
+    "linter:styles": "stylelint src/**/*scss",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
