@@ -15,10 +15,38 @@ const SwiperSample = (): React.ReactElement => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide className='Swiper__slide'>Slide 1</SwiperSlide>
-        <SwiperSlide className='Swiper__slide'>Slide 2</SwiperSlide>
-        <SwiperSlide className='Swiper__slide'>Slide 3</SwiperSlide>
-        <SwiperSlide className='Swiper__slide'>Slide 4</SwiperSlide>
+        <SwiperSlide className='Swiper__slide'>
+          <div
+            className='Swiper__content'
+            style={{
+              backgroundImage: 'url(https://wallsdesk.com/wp-content/uploads/2016/11/Mountain-Lion-4K.jpg)'
+            }}>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='Swiper__slide'>
+          <div
+            className='Swiper__content'
+            style={{
+              backgroundImage: 'url(https://wallpapercave.com/wp/wp1956450.jpg)'
+            }}>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='Swiper__slide'>
+          <div
+            className='Swiper__content'
+            style={{
+              backgroundImage: 'url(https://wallsdesk.com/wp-content/uploads/2016/11/Mountain-Lion-4K.jpg)'
+            }}>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className='Swiper__slide'>
+          <div
+            className='Swiper__content'
+            style={{
+              backgroundImage: 'url(https://wallpapercave.com/wp/wp1956450.jpg)'
+            }}>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
   );
