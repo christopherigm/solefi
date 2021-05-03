@@ -3,8 +3,10 @@
 .Swiper {
   display: block;
 
-  &__slide {
-    display: block;
+  &__content {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 400px;
     @extend .purple, .darken-3, .white-text;
   }
