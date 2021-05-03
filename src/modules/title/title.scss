@@ -1,4 +1,5 @@
 @import 'materialize-css';
+@import 'src/constants/Constants.scss';
 
 .Title {
   &__space {
@@ -7,8 +8,8 @@
 
   &__text {
     display: block;
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: $tilte-font-size;
+    font-weight: $title-font-weight;
     line-height: 1.6em;
     text-align: center;
     @extend .blue-text;

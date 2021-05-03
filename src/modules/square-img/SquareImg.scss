@@ -1,4 +1,5 @@
 @import 'materialize-css';
+@import 'src/constants/Constants.scss';
 
 .SquareImg {
   position: relative;
@@ -19,8 +20,8 @@
 
   &__button {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 20px;
     right: 15px;
     top: 179px;
@@ -31,14 +32,15 @@
   &__number {
     display: block;
     text-align: center;
-    font-size: 1.7em;
+    font-size: $items-number;
   }
 
   &__title {
     display: block;
     text-align: center;
     font-weight: 200;
-    font-size: 1.8em;
+    font-size: $subtitle-font-size;
+    font-weight: $subtitle-title-font-weight;
     margin-top: 20px;
   }
 
@@ -46,5 +48,6 @@
     padding: 10px 20px;
     padding-bottom: 25px;
     text-align: justify;
+    font-size: $regular-text;
   }
 }

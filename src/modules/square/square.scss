@@ -1,4 +1,5 @@
 @import 'materialize-css';
+@import 'src/constants/Constants.scss';
 
 .Square {
   display: block;
@@ -15,19 +16,20 @@
     border-radius: 32px;
     margin-left: calc(50% - 32px);
     text-align: center;
-    font-size: 2.3em;
+    font-size: $icons-size;
   }
 
   &__title {
     margin-top: 40px;
     text-align: center;
     width: 100%;
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: $subtitle-font-size;
+    font-weight: $subtitle-title-font-weight;
   }
 
   &__text {
     margin-top: 15px;
     text-align: center;
+    font-size: $regular-text;
   }
 }
