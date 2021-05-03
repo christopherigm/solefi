@@ -1,4 +1,5 @@
 @import 'materialize-css';
+@import 'src/constants/Constants.scss';
 
 .Box {
   background-color: rgb(255, 255, 255);
@@ -12,7 +13,7 @@
     padding: 0;
     display: block;
     text-align: center;
-    font-size: 1.3em;
+    font-size: $regular-text;
     line-height: 1.5em;
     @extend .black-text;
   }
