@@ -22,80 +22,87 @@ done
 
 # ============ Functions ============
 # $1 type -> nginx / supervisor
-# $2 environment
-# $3 dns
-# $4 port
 PopulateFile () {
-    file_name="$4.$3.$2.conf";
+    file_name="$port.$dns.$envt.conf";
     cp $1.conf $file_name;
-    sed -i "s/PORT/$4/gi" $file_name;
-    sed -i "s/DNS/$3/gi" $file_name;
-    sed -i "s/ENVT/$2/gi" $file_name;
-    sed -i "s/FOLDER/$folder/gi" $file_name;
-    sed -i "s/PROCESS_NAME/$porcess_name/gi" $file_name;
+    sed -i "s/PORT/$port/g" $file_name;
+    sed -i "s/DNS/$dns/g" $file_name;
+    sed -i "s/ENVT/$envt/g" $file_name;
+    sed -i "s/FOLDER/$folder/g" $file_name;
+    sed -i "s/PROCESS_NAME/$porcess_name/g" $file_name;
 }
 
 if [ ! -n "$dns" ]
 then
-	echo "Error: DNS variable not provided: -d my-web-app.com";
+	echo "Error: DNS variable not provided: -d solefi.iguzman.com.mx";
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$folder" ]
 then
-	echo "Error: folder variable not provided: -f my-web-app";
+	echo "Error: folder variable not provided: -f solefi;
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$porcess_name" ]
 then
-	echo "Error: porcess name variable not provided: -n my_web_app";
+	echo "Error: porcess name variable not provided: -n solefi";
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$port" ]
 then
-	echo "Error: port variable not provided: -p 4000";
+	echo "Error: port variable not provided: -p 80";
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$envt" ]
 then
-	echo "Error: environtment variable not provided: -e qa";
+	echo "Error: environtment variable not provided: -e staging";
     echo $show_help_message;
     exit 1;
 fi
 
-echo "Deploy Nginx configuration? (y/n)"
-read deploy
+echo "Create Nginx configuration? (y/n)"
+read create
 
-if [ "$deploy" == "y" ]
+if [ "$create" == "y" ]
 then
-	PopulateFile "nginx" "$envt" "$dns" "$port";
-    sudo cp ./$file_name /etc/nginx/sites-available/;
-    sudo ln -s /etc/nginx/sites-available/$file_name /etc/nginx/sites-enabled/;
-    sudo nginx -t;
-    sudo service nginx restart;
+	PopulateFile "nginx";
     echo "======================================";
     echo "$file_name:";
     cat $file_name;
     echo "======================================";
+    echo "Deploy Nginx configuration? (y/n)"
+    read deploy
+    if [ "$deploy" == "y" ]
+    then
+        sudo cp ./$file_name /etc/nginx/sites-available/;
+        sudo ln -s /etc/nginx/sites-available/$file_name /etc/nginx/sites-enabled/;
+        sudo nginx -t;
+        sudo service nginx restart;
+    fi
     rm ./$file_name;
 fi
 
-echo "Deploy Supervisor configuration? (y/n)"
-read deploy
-if [ "$deploy" == "y" ]
+echo "Create Supervisor configuration? (y/n)"
+read create
+if [ "$create" == "y" ]
 then
-    PopulateFile "supervisor" "$envt" "$dns" "$port";
-    sudo cp ./$file_name /etc/supervisor/conf.d/;
-    sudo supervisorctl reread;
-    sudo supervisorctl update;
-    sudo supervisorctl status;
+    PopulateFile "supervisor";
     echo "======================================";
     echo $file_name;
     cat $file_name;
     echo "======================================";
+    echo "Deploy Supervisor configuration? (y/n)"
+    read deploy
+    if [ "$deploy" == "y" ]
+    then
+        sudo cp ./$file_name /etc/supervisor/conf.d/;
+        sudo supervisorctl reread;
+        sudo supervisorctl update;
+        sudo supervisorctl status;
+    fi
     rm ./$file_name;
 fi
 
