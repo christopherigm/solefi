@@ -40,7 +40,7 @@ then
 fi
 if [ ! -n "$folder" ]
 then
-	echo "Error: folder variable not provided: -f solefi;
+	echo "Error: folder variable not provided: -f solefi";
     echo $show_help_message;
     exit 1;
 fi
