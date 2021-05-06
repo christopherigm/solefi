@@ -11,7 +11,8 @@
   "env": {
     "node": true,
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -96,8 +97,7 @@
   "overrides": [
     {
       "files": [
-        "*test.js",
-        "webpack.config.js"
+        "*test.js"
       ],
       "rules": {
         "max-lines-per-function": "off",
