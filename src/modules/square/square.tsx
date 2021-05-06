@@ -7,7 +7,9 @@ const Square = (props: any): React.ReactElement => {
       <div className='Square'>
         <i className={`material-icons ${props.color} Square__icon`}>{props.icon}</i>
         <div className='Square__title'>{props.title}</div>
-        <div className='Square__text'>{props.text}</div>
+        <div
+          className='Square__text'
+          dangerouslySetInnerHTML={{__html: props.text}}></div>
       </div>
     </div>
   );
