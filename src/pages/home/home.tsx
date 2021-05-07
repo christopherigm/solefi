@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import NavBar from 'src/modules/nav-bar/nav-bar';
-import ChartExample from 'src/modules/examples/chart-example/chart-example';
-import InputExamples from 'src/modules/examples/materialize/inputs-examples';
-import CordovaDevice from 'src/modules/examples/cordova-device/cordova-device';
 import SwiperSample from 'src/modules/examples/swiper/swiper';
+import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
+import InfoGrid from 'src/modules/info-grid/info-grid';
 
 const Home = (): React.ReactElement => {
   useEffect(() => {
@@ -14,11 +13,8 @@ const Home = (): React.ReactElement => {
     <>
       <NavBar />
       <SwiperSample />
-      <div className="container">
-        <InputExamples />
-        <ChartExample />
-        <CordovaDevice />
-      </div>
+      <HorizontalSpace size='large' />
+      <InfoGrid/>
     </>
   );
 };

@@ -1,10 +1,10 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-.Title {
+.SubTitle {
   &__text {
     display: block;
-    font-size: $tilte-font-size;
+    font-size: $subtitle-font-size;
     font-weight: $slim-font-weight;
     line-height: 1.6em;
     text-align: center;

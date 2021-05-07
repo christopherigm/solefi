@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useRef, useEffect } from 'react';
 import * as M from 'materialize-css';
 import { useSelector } from 'react-redux';
+import 'src/modules/nav-bar/nav-bar.scss';
 
 const NavBar = (): React.ReactElement => {
   const sideNavRef: any = useRef(null);
@@ -24,14 +25,22 @@ const NavBar = (): React.ReactElement => {
     <>
       <div className='navbar-fixed'>
         <nav className={ platformOptions.darkMode ? 'grey darken-4' : 'white grey-text text-darken-4' }>
-          <div className='nav-wrapper'>
-            <a href='#' className={`brand-logo ${textThemeClasses}`}>Logo</a>
-            <a href='#' data-target='mobile-demo' className='sidenav-trigger'>
+          <div className='nav-wrapper container'>
+            <Link
+              to='/'
+              className='brand-logo Logo'
+              style={{
+                backgroundImage: 'url(/logo.svg)'
+              }}>
+            </Link>
+            <a href='#'
+              data-target='mobile-demo'
+              className='sidenav-trigger blue-text text-darken-2'>
               <i className='material-icons'>menu</i>
             </a>
             <ul id='nav-mobile' className='right hide-on-med-and-down'>
               <li>
-                <Link className={textThemeClasses} to='/'>Home</Link>
+                <Link className={textThemeClasses} to='/'>Inicio</Link>
               </li>
               <li>
                 <Link className={textThemeClasses} to='/about'>Acerca</Link>
@@ -44,7 +53,7 @@ const NavBar = (): React.ReactElement => {
         ref={sideNavRef}
         onClick={closeSideNav}>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Inicio</Link>
         </li>
         <li>
           <Link to='/about'>Acerca</Link>
