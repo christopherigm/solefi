@@ -1,10 +1,12 @@
+const { REACT_APP_API_URL } = process.env;
+
 class SystemConstants {
   static _instance: SystemConstants;
   _apiBaseUrl: string;
 
   constructor() {
-    this._apiBaseUrl = process.env.API_BASE_URL ?
-      process.env.API_BASE_URL : 'https://api-staging.solefi.iguzman.com.mx/v1/';
+    this._apiBaseUrl = REACT_APP_API_URL ?
+      REACT_APP_API_URL : 'https://api-staging.solefi.iguzman.com.mx/v1/';
   }
 
   static getInstance(): SystemConstants {
