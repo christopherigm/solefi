@@ -1,6 +1,6 @@
 import {
   SWITCH_DARK_MODE
-} from 'src/constants/PlatformOptions';
+} from 'src/constants/SystemConstants';
 
 const initialState: any = {
   darkMode: false

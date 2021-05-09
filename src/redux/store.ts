@@ -15,7 +15,8 @@ const persistConfig = {
   storage,
   whitelist: [
     'platformOptions',
-    'user'
+    'user',
+    'infoGrid'
   ]
 };
 

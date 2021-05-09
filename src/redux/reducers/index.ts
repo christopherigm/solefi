@@ -1,12 +1,14 @@
 import {
   combineReducers
 } from 'redux';
-import UserReducer from 'src/redux/reducers/userReducer';
-import PlatformOptionsReducer from 'src/redux/reducers/platformOptions';
+import UserReducer from 'src/redux/reducers/user-reducer';
+import PlatformOptionsReducer from 'src/redux/reducers/platform-options-reducer';
+import InfoGridReducer from 'src/modules/info-grid/redux/info-grid-reducer';
 
 const reducers = {
   user: UserReducer,
-  platformOptions: PlatformOptionsReducer
+  platformOptions: PlatformOptionsReducer,
+  infoGrid: InfoGridReducer
 };
 
 export default combineReducers(reducers);

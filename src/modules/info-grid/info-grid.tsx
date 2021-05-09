@@ -1,31 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { APIGet } from 'src/api/communicator';
+import React, { useEffect } from 'react';
+import {
+  useSelector,
+  useDispatch
+} from 'react-redux';
+import setInfoGridData from 'src/modules/info-grid/redux/info-grid-actions';
+import fetctData from 'src/modules/info-grid/redux/fetch-info-grid-data';
 import Title from 'src/modules/title/title';
 import InfoGridItem from 'src/modules/info-grid/info-grid-item/info-grid-item';
 
 const InfoGrid = (): React.ReactElement => {
-  const [items, setItems] = useState([]);
-  const [title, setTitle] = useState('');
+  const dispatch = useDispatch();
+  const infoGrid = useSelector((state: any) => state.infoGrid);
+  const attr = infoGrid.data ? infoGrid.data.attributes ? infoGrid.data.attributes : {} : {};
+  const included = infoGrid.included ? infoGrid.included : [];
 
   useEffect(() => {
-    APIGet('info-grids/?filter[name]=our-solutions&include=items')
+    const version = attr.version ? attr.version : 0;
+    fetctData( version )
       .then((d: any) => {
-        const included = d.included;
-        const data = d.data[0];
-        const title = data.attributes.title;
-        setItems(included);
-        setTitle(title);
+        if ( d ) dispatch(setInfoGridData(d));
       })
       .catch((error) => {
-        console.log('error', error);
+        console.log(error);
       });
-  }, [APIGet]);
+  }, [fetctData]);
 
   return (
     <div className='container row'>
-      { title ? <Title text = {title} /> : null }
+      { attr.title ? <Title text = {attr.title} /> : null }
       {
-        items.map((item: any) => {
+        included.map((item: any) => {
           return (
             <InfoGridItem
               key = {item.id}
@@ -34,6 +38,12 @@ const InfoGrid = (): React.ReactElement => {
           );
         })
       }
+      <div className="fixed-action-btn">
+        <a href='/static/app.apk' target='_blank'
+          className="btn-floating btn-large waves-effect waves-light green darken-1">
+          <i className="material-icons">adb</i>
+        </a>
+      </div>
     </div>
   );
 };
