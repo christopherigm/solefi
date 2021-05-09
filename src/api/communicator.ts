@@ -1,5 +1,5 @@
 import axios from 'axios';
-import SystemConstants from 'src/constants/SystemConstants';
+import SystemConstants from 'src/constants/EnvironmentVariables';
 
 const sc = SystemConstants.getInstance();
 
