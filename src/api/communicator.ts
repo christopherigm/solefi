@@ -15,3 +15,16 @@ export const APIGet = ( endpoint: string ): Promise<any> => {
       });
   });
 };
+
+export const APIPost = ( endpoint: string, data: any ): Promise<any> => {
+  const url = `${sc.apiBaseUrl}${endpoint}`;
+  return new Promise((res, rej) => {
+    axios.post(url, data)
+      .then((response) => {
+        return res(response.data);
+      })
+      .catch((error) => {
+        return rej(error);
+      });
+  });
+};

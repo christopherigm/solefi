@@ -9,11 +9,17 @@ import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from 'src/redux/store';
 import Home from 'src/pages/home/home';
 import About from 'src/pages/about/about';
+import ActivateUser from 'src/pages/activate-user/activate-user';
 
 const Routes = (): React.ReactElement => {
   return (
     <Router>
       <Switch>
+        <Route path="/activate/:token">
+          <Provider store={store}>
+            <ActivateUser />
+          </Provider>
+        </Route>
         <Route path='/about'>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}><About /></PersistGate>
