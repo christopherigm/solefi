@@ -1,0 +1,58 @@
+@import 'materialize-css';
+@import 'src/constants/Constants.scss';
+
+
+.ContainerInfo {
+  background-image: linear-gradient(19deg, #0a2bb3, #24b1e6);
+  height: 350px;
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: auto;
+  top: 300px;
+}
+.Platform {
+  margin: auto;
+  height: 300px;
+  width: 80%;
+  display: block;
+  position: relative;
+  top: -300px;
+  border-radius: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Content{
+  padding: 70px 50px 5px 50px;
+}
+.Info__Title{
+  font-size: $tilte-font-size;
+}
+.Info__text, .Info__list {
+  font-size: $regular-text;
+  margin-bottom: 20px;
+}
+.Info__button{
+  background-color: white;
+  width: fit-content + 5px;
+  margin-top: 15px;
+  padding: 5px 10px;
+}
+
+@media screen and (min-width:900px) {
+  .ContainerInfo {
+    width: 50%;
+    float: left;
+    top: 0;
+  }
+  .Platform {
+    margin: 0;
+    top: 25px;
+    width: 55%;
+    left: 45%;
+    border-radius: 15px 0px 0px 15px;
+    margin-bottom: 3em;
+  }
+}
