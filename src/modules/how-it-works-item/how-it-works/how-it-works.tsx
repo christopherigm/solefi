@@ -1,5 +1,5 @@
 import React from 'react';
-import SquareImg from 'src/modules/square-img/SquareImg';
+import SquareImg from 'src/modules/how-it-works-item/SquareImg';
 
 const SquareItWork = (): React.ReactElement => {
   return (

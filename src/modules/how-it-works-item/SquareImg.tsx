@@ -1,5 +1,5 @@
 import React from 'react';
-import 'src/modules/square-img/SquareImg.scss';
+import 'src/modules/how-it-works-item/SquareImg.scss';
 import { useSelector } from 'react-redux';
 
 const SquareImg = (props: any): React.ReactElement => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import NavBar from 'src/modules/nav-bar/nav-bar';
 import InfoGrid from 'src/modules/info-grid/info-grid';
-import SquareItWork from 'src/modules/square-it-work/SquareItWork';
+import SquareItWork from 'src/modules/how-it-works-item/how-it-works/how-it-works';
 
 const About = (): React.ReactElement => {
   useEffect(() => {
