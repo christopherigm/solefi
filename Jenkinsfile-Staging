@@ -23,6 +23,7 @@ pipeline {
                 sh 'cp -r build /var/www/apps/staging/'
                 sh 'mv /var/www/apps/staging/build /var/www/apps/staging/solefi'
                 sh 'cp -r deploy /var/www/apps/staging/solefi'
+                sh 'sudo cp /home/christopher/solefi-staging-react-env /var/www/apps/staging/solefi/.env'
             }
         }
         stage('App') {
