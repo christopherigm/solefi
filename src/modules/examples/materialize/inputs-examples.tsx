@@ -4,7 +4,7 @@ import {
   useSelector,
   useDispatch
 } from 'react-redux';
-import SwitchDarkMode from 'src/redux/actions/platform-options/switch-dark-mode';
+import SwitchDarkMode from 'src/redux/actions/switch-dark-mode';
 
 const InputExamples = (): React.ReactElement => {
   const inputRef: any = useRef(null);
