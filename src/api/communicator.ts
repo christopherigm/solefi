@@ -1,12 +1,18 @@
+import https from 'https';
 import axios from 'axios';
-import SystemConstants from 'src/constants/EnvironmentVariables';
+import EnvironmentVariables from 'src/constants/EnvironmentVariables';
 
-const sc = SystemConstants.getInstance();
+const sc = EnvironmentVariables.getInstance();
+const instance = axios.create({
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false
+  })
+});
 
 export const APIGet = ( endpoint: string ): Promise<any> => {
   const url = `${sc.apiBaseUrl}${endpoint}`;
   return new Promise((res, rej) => {
-    axios.get(url)
+    instance.get(url)
       .then((response) => {
         return res(response.data);
       })
@@ -19,7 +25,7 @@ export const APIGet = ( endpoint: string ): Promise<any> => {
 export const APIPost = ( endpoint: string, data: any ): Promise<any> => {
   const url = `${sc.apiBaseUrl}${endpoint}`;
   return new Promise((res, rej) => {
-    axios.post(url, data)
+    instance.post(url, data)
       .then((response) => {
         return res(response.data);
       })

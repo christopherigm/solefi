@@ -9,13 +9,11 @@ then
     exit 0;
 fi
 
-while getopts d:f:n:p:e: flag
+while getopts d:f:e: flag
 do
     case "${flag}" in
         d) dns=${OPTARG};;
         f) folder=${OPTARG};;
-        n) porcess_name=${OPTARG};;
-        p) port=${OPTARG};;
         e) envt=${OPTARG};;
     esac
 done
@@ -23,14 +21,12 @@ done
 # ============ Functions ============
 # $1 type -> nginx / supervisor
 PopulateFile () {
-    file_name="$port.$dns.$envt.conf";
-    sudo cp $1.conf $file_name;
-    sudo chmod 775 $file_name;
-    sed -i "s/PORT/$port/g" $file_name;
+    file_name="$dns.conf";
+    cp $1.conf $file_name;
+    chmod 775 $file_name;
     sed -i "s/DNS/$dns/g" $file_name;
     sed -i "s/ENVT/$envt/g" $file_name;
     sed -i "s/FOLDER/$folder/g" $file_name;
-    sed -i "s/PROCESS_NAME/$porcess_name/g" $file_name;
 }
 
 if [ ! -n "$dns" ]
@@ -42,18 +38,6 @@ fi
 if [ ! -n "$folder" ]
 then
 	echo "Error: folder variable not provided: -f solefi";
-    echo $show_help_message;
-    exit 1;
-fi
-if [ ! -n "$porcess_name" ]
-then
-	echo "Error: porcess name variable not provided: -n solefi";
-    echo $show_help_message;
-    exit 1;
-fi
-if [ ! -n "$port" ]
-then
-	echo "Error: port variable not provided: -p 80";
     echo $show_help_message;
     exit 1;
 fi
@@ -83,7 +67,7 @@ then
         sudo nginx -t;
         sudo service nginx restart;
     fi
-    sudo rm ./$file_name;
+    rm ./$file_name;
 fi
 
 echo "Done"

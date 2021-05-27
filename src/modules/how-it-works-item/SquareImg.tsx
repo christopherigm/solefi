@@ -3,7 +3,7 @@ import 'src/modules/how-it-works-item/SquareImg.scss';
 import { useSelector } from 'react-redux';
 
 const SquareImg = (props: any): React.ReactElement => {
-  const platformOptions = useSelector((state: any) => state.platformOptions);
+  const system = useSelector((state: any) => state.system);
 
   return (
     <div className='col s12 m6 l4'>
@@ -14,7 +14,7 @@ const SquareImg = (props: any): React.ReactElement => {
         <div
           className='SquareImg__button'
           style={{
-            backgroundColor: platformOptions.darkMode ? 'gray' : '#f44336'
+            backgroundColor: system.darkMode ? 'gray' : '#f44336'
           }}>
           <a
             href={props.link}

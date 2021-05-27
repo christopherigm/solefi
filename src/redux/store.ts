@@ -1,5 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import {
+  createStore,
+  applyMiddleware
+} from 'redux';
+import {
+  persistStore,
+  persistReducer
+} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { createLogger } from 'redux-logger';
 import reducer from 'src/redux/reducers';
@@ -14,7 +20,7 @@ const persistConfig = {
   key: 'root',
   storage,
   whitelist: [
-    'platformOptions',
+    'system',
     'user',
     'infoGrid'
   ]

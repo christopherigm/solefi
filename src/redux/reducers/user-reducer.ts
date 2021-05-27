@@ -1,22 +1,14 @@
 import {
-  UPDATE_USER
-} from 'src/constants/User';
+  USER
+} from 'src/constants/SystemConstants';
 
-const initialState: any = {
-  id: null,
-  name: 'John',
-  last_name: 'Doe',
-  email: 'john@doe.com'
-};
+const initialState: any = {};
 
-const UserReducer = (state = initialState, action: any): any => {
+export const UserReducer = (state = initialState, action: any): any => {
   switch ( action.type ) {
-    case UPDATE_USER:
-      const newData = { ...state, ...action.data };
-      return newData;
+    case USER:
+      return { ...state, ...action.data };
     default:
       return state;
   }
 };
-
-export default UserReducer;

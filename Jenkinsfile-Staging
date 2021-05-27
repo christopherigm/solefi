@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             environment {
                 PUBLIC_URL = ''
+                REACT_APP_API_URL='https://api.longmont.solefi.iguzman.com.mx/v1/'
             }
             steps {
                 sh 'npm run build'
@@ -23,7 +24,16 @@ pipeline {
                 sh 'cp -r build /var/www/apps/staging/'
                 sh 'mv /var/www/apps/staging/build /var/www/apps/staging/solefi'
                 sh 'cp -r deploy /var/www/apps/staging/solefi'
-                sh 'sudo cp /home/christopher/solefi-staging-react-env /var/www/apps/staging/solefi/.env'
+            }
+        }
+        stage('Build Android App') {
+            environment {
+                PUBLIC_URL = ''
+                REACT_APP_API_URL = 'https://api.longmont.solefi.iguzman.com.mx/v1/'
+                REACT_APP_IS_MOBILE_APP = 'true'
+            }
+            steps {
+                sh 'npm run build'
             }
         }
         stage('App') {
@@ -37,9 +47,11 @@ pipeline {
                 sh 'rm app/config.xml'
                 sh 'cp android/config.xml app/'
                 sh 'cp android/logo.png app/'
+                sh 'cp android/splash.png app/'
                 dir('app') {
                     sh 'cordova platform add android'
                     sh 'cordova plugin add cordova-plugin-device'
+                    sh 'cordova plugin add cordova-plugin-splashscreen'
                     sh 'cordova build android'
                 }
                 sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/solefi/static/app.apk'
