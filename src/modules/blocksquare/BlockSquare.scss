@@ -1,0 +1,59 @@
+@import 'materialize-css';
+@import 'src/constants/Constants.scss';
+
+
+.Block{
+  display: block;
+  &__Information {
+    display: block;
+    background-image: linear-gradient(70deg, #0a2bb3, #23a5d7);
+    height: 130px;
+  }
+  &__Information2 {
+    display: block;
+    background-image:  linear-gradient(42deg, #3023AE, #C86DD7);
+    height: 130px;
+  }
+  &__Image {
+    display: block;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+  }
+  &__text {
+    height: auto;
+    display: block;
+    line-height: 1.5em;
+    padding: 2em;
+    text-align: center;
+    color: white;
+    font-size: $regular-text;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .Block{
+    display: block;
+    &__Information {
+      height: 250px;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+      border-left: 20px solid white;
+      border-right:20px solid white;
+    }
+    &__Information2 {
+      height: 250px;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+      border-left: 20px solid white;
+      border-right:20px solid white;
+    }
+    &__Image {
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+      border-left: 20px solid white;
+      border-right:20px solid white;
+    }
+  }
+}
