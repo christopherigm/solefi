@@ -6,3 +6,4 @@ export const FILE_PREFIX = {
   ANDROID: 'file:///android_asset/www'
 };
 export const INFO_GRID_DATA = 'INFO_GRID_DATA';
+export const SLIDES_DATA = 'SLIDES_DATA';

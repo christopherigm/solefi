@@ -5,7 +5,9 @@ const WhiteTextBox = (props: any): React.ReactElement => {
   return (
     <div className='WhiteTextBox row'>
       <em className='col s0 m1 l0 hid-on-small-only Box__space'></em>
-        <div className='col s12 m10 l12 Box__text'>{props.text}</div>
+        <div
+          className='col s12 m10 l12 WhiteTextBox__text'
+          dangerouslySetInnerHTML={{__html: props.text}}></div>
       <em className='col s0 m1 l0 hid-on-small-only Box__space'></em>
     </div>
 
