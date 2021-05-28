@@ -4,6 +4,7 @@ import {
   useParams
 } from 'react-router-dom';
 import NavBar from 'src/modules/nav-bar/nav-bar';
+import Slides from 'src/modules/slides/slides';
 import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
 import ActivateUserCall from 'src/pages/activate-user/activate-user-call';
 import Footer from 'src/modules/footer/footer';
@@ -32,6 +33,7 @@ const ActivateUser = (): React.ReactElement => {
   return (
     <>
       <NavBar />
+      <Slides />
       <HorizontalSpace size='large' />
       <p>{ status.success ? 'Cuenta activada correctamente' : status.message }</p>
       <Footer />

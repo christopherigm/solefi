@@ -4,7 +4,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Check') {
+        stage('Install dependencies') {
             steps {
                 sh 'npm i'
             }
@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             environment {
                 PUBLIC_URL = ''
+                REACT_APP_BRANCH_NAME = sh(script: 'echo ${branchName}', , returnStdout: true).trim()
                 REACT_APP_API_URL='https://api.solefi.longmont.iguzman.com.mx/v1/'
             }
             steps {
@@ -26,9 +27,10 @@ pipeline {
                 sh 'cp -r deploy /var/www/apps/staging/solefi'
             }
         }
-        stage('Build Android App') {
+        stage('Build Mobile App') {
             environment {
                 PUBLIC_URL = ''
+                REACT_APP_BRANCH_NAME = sh(script: 'echo ${branchName}', , returnStdout: true).trim()
                 REACT_APP_API_URL = 'https://api.solefi.longmont.iguzman.com.mx/v1/'
                 REACT_APP_IS_MOBILE_APP = 'true'
             }
@@ -36,7 +38,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('App') {
+        stage('Builid Android App') {
             steps {
                 sh 'rm -rf app'
                 sh 'cordova create app'
@@ -56,6 +58,17 @@ pipeline {
                 }
                 sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/solefi/static/app.apk'
                 sh 'chmod 777 /var/www/apps/staging/solefi/static/app.apk'
+            }
+        }
+        stage('Upgrade package.json version') {
+            environment {
+                REACT_APP_BRANCH_NAME = sh(script: 'echo ${branchName}', , returnStdout: true).trim()
+            }
+            steps {
+                sh 'node upgrade-version.js'
+                sh 'git add package.json'
+                sh 'git commit -m "Upgrade package.json version"'
+                sh 'git push origin -f refs/remotes/origin/${REACT_APP_BRANCH_NAME}'
             }
         }
     }
