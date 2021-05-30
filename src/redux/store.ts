@@ -22,7 +22,8 @@ const persistConfig = {
   whitelist: [
     'system',
     'user',
-    'infoGrid'
+    'infoGrid',
+    'slides'
   ]
 };
 

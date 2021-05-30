@@ -12,7 +12,7 @@ const Footer = (): React.ReactElement => {
     <footer className='page-footer blue Footer'>
       <div className='footer-copyright Footer__copyright'>
         <div className='container'>
-          <span>V. 1.0.0 ({system.platform.os} build) </span>
+          <span>V. {env.version} ({system.platform.os} - {env.branchName} build) </span>
           { !isMobileApp ?
             <>
             - <a
