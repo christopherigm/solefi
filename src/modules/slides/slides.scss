@@ -8,7 +8,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 80vh;
     @extend .white-text;
   }
 
@@ -45,6 +45,10 @@
 
 @media screen and (min-width: 992px) {
   .Swiper {
+    &__content {
+      height: 90vh;
+    }
+
     .WhiteTextBox {
       bottom: 70px;
       width: 460px;
