@@ -21,6 +21,10 @@ const Slide = (): React.ReactElement => {
   const attr = slides.data ? slides.data.attributes ? slides.data.attributes : {} : {};
   const included = slides.included ? slides.included : [];
   const [text, setText] = useState('');
+  const system = useSelector((state: any) => state.system);
+  const prefix = system.platform.prefix;
+  const triangleFile = '/white-triangle.png';
+  const triangleURL = `${prefix}${triangleFile}`;
 
   useEffect(() => {
     const version = attr.version ? attr.version : 0;
@@ -31,25 +35,20 @@ const Slide = (): React.ReactElement => {
       .catch((error) => {
         console.log(error);
       });
-    setText(included.length ? included[0].attributes.description : '');
   }, [fetctData]);
 
   const updateText = ( e: any ) => {
-    setText(included.length ? included[Number(e.activeIndex)].attributes.description : '');
+    const page = Number(e.realIndex);
+    setText(included.length ? included[page].attributes.description : '');
   };
 
   return (
     <>
       <Swiper
-        className='Swiper'
-        autoplay={true}
-        effect='fade'
-        onSlideChangeTransitionEnd={updateText}
-        onDragEnd={updateText}
-        spaceBetween={0}
-        slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        className='Swiper' autoplay={true} effect='fade'
+        spaceBetween={0} slidesPerView={1} loop={true}
+        onSlideChange={updateText}
+        onSwiper={updateText}
       >
         {
           included.map((item: any, index: any ) => {
@@ -71,7 +70,7 @@ const Slide = (): React.ReactElement => {
         <div
           className='Swiper__triangle'
           style={{
-            backgroundImage: 'url(/white-triangle.png)'
+            backgroundImage: `url(${triangleURL})`
           }}
         ></div>
         <WhiteTextBox text={text}/>
