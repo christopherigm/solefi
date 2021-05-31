@@ -1,19 +1,21 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-
-.Block{
+.Mosaic{
   display: block;
+
   &__Information {
     display: block;
     background-image: linear-gradient(70deg, #0a2bb3, #23a5d7);
     height: 130px;
   }
+
   &__Information2 {
     display: block;
     background-image:  linear-gradient(42deg, #3023AE, #C86DD7);
     height: 130px;
   }
+
   &__Image {
     display: block;
     background-position: center;
@@ -21,6 +23,7 @@
     background-repeat: no-repeat;
     height: 250px;
   }
+
   &__text {
     height: auto;
     display: block;
@@ -33,7 +36,7 @@
 }
 
 @media screen and (min-width:600px) {
-  .Block{
+  .Mosaic{
     display: block;
     &__Information {
       height: 250px;

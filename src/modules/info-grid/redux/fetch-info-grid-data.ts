@@ -1,7 +1,8 @@
 import { APIGet } from 'src/api/communicator';
 
-const versionCheckURL = 'info-grids/?filter[name]=our-solutions&fields[InfoGrid]=version';
-const fullURL = 'info-grids/?filter[name]=our-solutions&include=items';
+const dataId = 'our-solutions';
+const versionCheckURL = `info-grids/?filter[name]=${dataId}&fields[InfoGrid]=version`;
+const fullURL = `info-grids/?filter[name]=${dataId}&include=items`;
 
 const getData = ( url: string ): Promise<any> => {
   return new Promise((res, rej) => {
@@ -15,7 +16,7 @@ const getData = ( url: string ): Promise<any> => {
   });
 };
 
-const fetchInfoGridData = ( cacheVersion: number ): Promise<any> => {
+const fetchData = ( cacheVersion: number ): Promise<any> => {
   return new Promise((res, rej) => {
     getData( versionCheckURL )
       .then((d: any) => {
@@ -39,4 +40,4 @@ const fetchInfoGridData = ( cacheVersion: number ): Promise<any> => {
   });
 };
 
-export default fetchInfoGridData;
+export default fetchData;

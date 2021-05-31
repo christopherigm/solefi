@@ -11,7 +11,7 @@ import {
   SwiperSlide
 } from 'swiper/react';
 import setSlidesData from 'src/modules/slides/redux/slides-actions';
-import fetctData from 'src/modules/slides/redux/fetch-slides-data';
+import fetchData from 'src/modules/slides/redux/fetch-slides-data';
 import 'src/modules/slides/slides.scss';
 import WhiteTextBox from 'src/modules/white-text-box/white-text-box';
 
@@ -28,14 +28,14 @@ const Slide = (): React.ReactElement => {
 
   useEffect(() => {
     const version = attr.version ? attr.version : 0;
-    fetctData( version )
+    fetchData( version )
       .then((d: any) => {
         if ( d ) dispatch(setSlidesData(d));
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [fetctData]);
+  }, [fetchData]);
 
   const updateText = ( e: any ) => {
     const page = Number(e.realIndex);

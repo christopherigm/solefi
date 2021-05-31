@@ -1,6 +1,6 @@
 import { APIGet } from 'src/api/communicator';
 
-const dataId = 'slides';
+const dataId = 'mosaic';
 const versionCheckURL = `info-grids/?filter[name]=${dataId}&fields[InfoGrid]=version`;
 const fullURL = `info-grids/?filter[name]=${dataId}&include=items`;
 
