@@ -23,7 +23,9 @@ const persistConfig = {
     'system',
     'user',
     'infoGrid',
-    'slides'
+    'slides',
+    'howItWorks',
+    'mosaicData'
   ]
 };
 

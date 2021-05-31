@@ -8,6 +8,7 @@ import {
 import setInfoGridData from 'src/modules/info-grid/redux/info-grid-actions';
 import fetctData from 'src/modules/info-grid/redux/fetch-info-grid-data';
 import Title from 'src/modules/title/title';
+import SubTitle from 'src/modules/sub-title/sub-title';
 import InfoGridItem from 'src/modules/info-grid/info-grid-item/info-grid-item';
 
 const InfoGrid = (): React.ReactElement => {
@@ -30,6 +31,7 @@ const InfoGrid = (): React.ReactElement => {
   return (
     <div className='container row'>
       { attr.title ? <Title text = {attr.title} /> : null }
+      { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
         included.map((item: any) => {
           return (
@@ -40,12 +42,6 @@ const InfoGrid = (): React.ReactElement => {
           );
         })
       }
-      <div className="fixed-action-btn">
-        <a href='/static/app.apk' target='_blank'
-          className="btn-floating btn-large waves-effect waves-light green darken-1">
-          <i className="material-icons">adb</i>
-        </a>
-      </div>
     </div>
   );
 };

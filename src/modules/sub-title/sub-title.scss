@@ -8,6 +8,6 @@
     font-weight: $slim-font-weight;
     line-height: 1.6em;
     text-align: center;
-    @extend .blue-text;
+    @extend .grey-text, .text-darken-3;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "solefi",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
@@ -45,7 +45,8 @@
     "linter:styles": "stylelint src/**/*scss",
     "linter:ts": "eslint src --ext .ts,.tsx",
     "linter": "npm-run-all linter:*",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "node upgrade-version"
   },
   "eslintConfig": {
     "extends": [
