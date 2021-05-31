@@ -5,6 +5,7 @@
   display: block;
   padding: 0 15px;
   margin-top: 40px;
+  transition: all 0.8s;
 
   &__icon,
   i {
@@ -32,5 +33,35 @@
     margin-top: 15px;
     text-align: center;
     font-size: $regular-text;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .InfoGridItem {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .InfoGridItem {
+    height: 220px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .InfoGridItem {
+    height: 320px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .InfoGridItem {
+    height: 280px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .InfoGridItem {
+    height: 240px;
   }
 }

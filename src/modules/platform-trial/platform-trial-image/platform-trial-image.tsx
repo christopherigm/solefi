@@ -1,5 +1,4 @@
 import React from 'react';
-import 'src/modules/PlatformTrial/PlatformTrial.scss';
 
 const PlatformImage = (props:any): React.ReactElement => {
   return (

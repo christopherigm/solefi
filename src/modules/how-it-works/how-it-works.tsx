@@ -11,7 +11,7 @@ import Title from 'src/modules/title/title';
 import SubTitle from 'src/modules/sub-title/sub-title';
 import HowItWorksItem from 'src/modules/how-it-works/how-it-works-item/how-it-works-item';
 
-const SquareItWork = (): React.ReactElement => {
+const HowItWorks = (): React.ReactElement => {
   const dispatch = useDispatch();
   const howItWorks = useSelector((state: any) => state.howItWorks);
   const attr = howItWorks.data ? howItWorks.data.attributes ? howItWorks.data.attributes : {} : {};
@@ -35,13 +35,11 @@ const SquareItWork = (): React.ReactElement => {
       {
         included.map((item: any, index: any ) => {
           return (
-            <>
-              <HowItWorksItem
-                key={index}
-                number={index}
-                attr={item.attributes}
-              />
-            </>
+            <HowItWorksItem
+              key={index}
+              number={index}
+              attr={item.attributes}
+            />
           );
         })
       }
@@ -49,4 +47,4 @@ const SquareItWork = (): React.ReactElement => {
   );
 };
 
-export default SquareItWork;
+export default HowItWorks;
