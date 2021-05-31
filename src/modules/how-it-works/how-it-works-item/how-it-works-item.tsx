@@ -7,7 +7,10 @@ const HowItWorksItem = (props: any): React.ReactElement => {
   const attr = props.attr;
 
   return (
-    <div className='col s12 m6 l4'>
+    <div
+      className='col s12 m6 l4'
+      key={props.number}
+      >
       <div className='HowItWorksItem'>
         <div className='HowItWorksItem__img'
           style = {{backgroundImage: `url(${attr.img_picture})`}}>

@@ -4,9 +4,9 @@ import NavBar from 'src/modules/nav-bar/nav-bar';
 import Slides from 'src/modules/slides/slides';
 import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
 import InfoGrid from 'src/modules/info-grid/info-grid';
-import PlatformTrial from 'src/modules/PlatformTrial/PlatformTrial';
+import PlatformTrial from 'src/modules/platform-trial/platform-trial';
 import HowItWorks from 'src/modules/how-it-works/how-it-works';
-import SolefiBlockSquare from 'src/modules/mosaic/mosaic';
+import Mosaic from 'src/modules/mosaic/mosaic';
 import Footer from 'src/modules/footer/footer';
 
 const Home = (): React.ReactElement => {
@@ -21,7 +21,7 @@ const Home = (): React.ReactElement => {
       <HorizontalSpace size='x-large' />
       <HowItWorks/>
       <HorizontalSpace size='large' />
-      <SolefiBlockSquare/>
+      <Mosaic/>
       <HorizontalSpace size='large' />
       <Footer />
       <SystemCheck />

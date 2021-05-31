@@ -1,5 +1,4 @@
 import React from 'react';
-import 'src/modules/PlatformTrial/PlatformTrial.scss';
 
 const PlatformInfo = (props: any): React.ReactElement => {
     return (

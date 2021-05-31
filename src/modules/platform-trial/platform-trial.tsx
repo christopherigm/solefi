@@ -1,7 +1,7 @@
 import React from 'react';
-import PlatformInfo from 'src/modules/PlatformTrial/PlatformInfo/PlatformInfo';
-import PlatformImage from 'src/modules/PlatformTrial/PlatformImage/PlatformImage';
-import 'src/modules/PlatformTrial/PlatformTrial.scss';
+import PlatformInfo from 'src/modules/platform-trial/platform-trial-info/platform-trial-info';
+import PlatformImage from 'src/modules/platform-trial/platform-trial-image/platform-trial-image';
+import 'src/modules/platform-trial/platform-trial.scss';
 
 const PlatformTrial = (): React.ReactElement => {
   return (
