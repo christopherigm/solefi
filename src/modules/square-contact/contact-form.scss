@@ -1,0 +1,73 @@
+@import 'materialize-css';
+@import 'src/constants/Constants.scss';
+
+.ContactForm {
+  display: block;
+  padding: 30px 0 10px;
+  margin-top: 70px;
+
+  &__info {
+    display: block;
+    margin: auto;
+  }
+  
+  &__block {
+    margin-bottom: 20px;
+  }
+}
+
+.ContactItem {
+  &__title {
+    font-size: $subtitle-font-size;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: $regular-text;
+    margin-bottom: 20px;
+  }
+
+  &__textclick {
+    text-align: center;
+    font-size: $regular-text;
+    font-weight: $medium-font-weight;
+  }
+
+  &__info {
+    display: block;
+    height: 300px;
+    border: 1px solid $white;
+    border-radius: 10px;
+    box-shadow: 0 $white;
+    transition-duration: 0.25s;
+    text-align: center;
+    padding: 2em;
+  }
+
+  &__info i {
+    font-size: 3.5em;
+  }
+
+  &__info:hover {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.329);
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .ContactItem {
+    &__info {
+      margin: auto;
+      width: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px){
+  .ContactItem {
+    &__info {
+      max-width: 260px;
+    }
+  }
+}

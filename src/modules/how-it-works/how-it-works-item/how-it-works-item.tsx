@@ -11,7 +11,7 @@ const HowItWorksItem = (props: any): React.ReactElement => {
       className='col s12 m6 l4'
       key={props.number}
       >
-      <div className='HowItWorksItem'>
+      <div className='HowItWorksItem z-depth-3'>
         <div className='HowItWorksItem__img'
           style = {{backgroundImage: `url(${attr.img_picture})`}}>
         </div>

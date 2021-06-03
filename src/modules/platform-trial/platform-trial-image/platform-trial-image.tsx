@@ -4,7 +4,7 @@ const PlatformImage = (props:any): React.ReactElement => {
   return (
     <div
       style = {{backgroundImage: `url(${props.image})`}}
-      className='Platform'>
+      className='Platform z-depth-4'>
     </div>
   );
 };
