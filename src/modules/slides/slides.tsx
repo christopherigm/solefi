@@ -17,9 +17,11 @@ import WhiteTextBox from 'src/modules/white-text-box/white-text-box';
 
 const Slide = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const slides = useSelector((state: any) => state.slides);
-  const attr = slides.data ? slides.data.attributes ? slides.data.attributes : {} : {};
-  const included = slides.included ? slides.included : [];
+  const slidesData = useSelector((state: any) => state.slides);
+  const attr = slidesData.data ? slidesData.data.attributes ? slidesData.data.attributes : {} : {};
+  const slides = slidesData.data && slidesData.data.relationships &&
+    slidesData.data.relationships.items && slidesData.data.relationships.items.data ?
+    slidesData.data.relationships.items.data : [];
   const [text, setText] = useState('');
   const system = useSelector((state: any) => state.system);
   const prefix = system.platform.prefix;
@@ -27,7 +29,10 @@ const Slide = (): React.ReactElement => {
   const triangleURL = `${prefix}${triangleFile}`;
 
   useEffect(() => {
-    const version = attr.version ? attr.version : 0;
+    let version = attr.version ? attr.version : 0;
+    if ( slides.length && !slides[0].attributes ) {
+      version = 0;
+    }
     fetchData( version )
       .then((d: any) => {
         if ( d ) dispatch(setSlidesData(d));
@@ -39,7 +44,7 @@ const Slide = (): React.ReactElement => {
 
   const updateText = ( e: any ) => {
     const page = Number(e.realIndex);
-    setText(included.length ? included[page].attributes.description : '');
+    setText(slides.length ? slides[page].attributes.description : '');
   };
 
   return (
@@ -51,7 +56,8 @@ const Slide = (): React.ReactElement => {
         onSwiper={updateText}
       >
         {
-          included.map((item: any, index: any ) => {
+          slides.map((item: any, index: any ) => {
+            if ( !item.attributes ) return null;
             return (
               <SwiperSlide
                 className='Swiper__slide'

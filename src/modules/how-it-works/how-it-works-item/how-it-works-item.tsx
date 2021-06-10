@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 const HowItWorksItem = (props: any): React.ReactElement => {
   const system = useSelector((state: any) => state.system);
   const attr = props.attr;
+  if ( !attr ) return (<></>);
 
   return (
     <div

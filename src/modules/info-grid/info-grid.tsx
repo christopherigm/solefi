@@ -13,12 +13,17 @@ import InfoGridItem from 'src/modules/info-grid/info-grid-item/info-grid-item';
 
 const InfoGrid = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const infoGrid = useSelector((state: any) => state.infoGrid);
-  const attr = infoGrid.data ? infoGrid.data.attributes ? infoGrid.data.attributes : {} : {};
-  const included = infoGrid.included ? infoGrid.included : [];
+  const infoGridData = useSelector((state: any) => state.infoGrid);
+  const attr = infoGridData.data ? infoGridData.data.attributes ? infoGridData.data.attributes : {} : {};
+  const infoGridItems = infoGridData.data && infoGridData.data.relationships &&
+    infoGridData.data.relationships.items && infoGridData.data.relationships.items.data ?
+    infoGridData.data.relationships.items.data : [];
 
   useEffect(() => {
-    const version = attr.version ? attr.version : 0;
+    let version = attr.version ? attr.version : 0;
+    if ( infoGridItems.length && !infoGridItems[0].attributes ) {
+      version = 0;
+    }
     fetctData( version )
       .then((d: any) => {
         if ( d ) dispatch(setInfoGridData(d));
@@ -33,7 +38,7 @@ const InfoGrid = (): React.ReactElement => {
       { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
       { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
-        included.map((item: any) => {
+        infoGridItems.map((item: any) => {
           return (
             <InfoGridItem
               key = {item.id}

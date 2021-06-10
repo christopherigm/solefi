@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import EnvironmentVariables from 'src/constants/EnvironmentVariables';
+import Contact from 'src/modules/square-contact/contact';
 
 const env = EnvironmentVariables.getInstance();
 const isMobileApp = env.isMobileApp;
@@ -10,6 +11,7 @@ const Footer = (): React.ReactElement => {
 
   return (
     <footer className='page-footer blue Footer'>
+      <Contact/>
       <div className='footer-copyright Footer__copyright'>
         <div className='container'>
           <span>V. {env.version} ({system.platform.os} - {env.branchName} build) </span>

@@ -3,8 +3,8 @@ import React from 'react';
 const PlatformImage = (props:any): React.ReactElement => {
   return (
     <div
-      style = {{backgroundImage: `url(${props.image})`}}
-      className='Platform z-depth-4'>
+      style={{backgroundImage: `url(${props.image})`}}
+      className='PlatformTrial__img'>
     </div>
   );
 };

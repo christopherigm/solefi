@@ -3,11 +3,9 @@ import 'src/modules/square-contact/contact-form.scss';
 import ContactItem from 'src/modules/square-contact/contact-item';
 import Title from 'src/modules/title/title';
 
-const ContactForm = (props: any): React.ReactElement => {
+const ContactForm = (): React.ReactElement => {
   return (
-    <div
-      style={{backgroundColor: `${props.color}`}}
-      className='ContactForm'>
+    <div className='ContactForm'>
     <div>
       <Title
         color='white'

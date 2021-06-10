@@ -21,10 +21,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'rm -rf /var/www/apps/staging/solefi'
-                sh 'cp -r build /var/www/apps/staging/'
-                sh 'mv /var/www/apps/staging/build /var/www/apps/staging/solefi'
-                sh 'cp -r deploy /var/www/apps/staging/solefi'
+                sh 'sudo chmod -R 777 /hdd/apps/staging/'
+                sh 'rm -rf /hdd/apps/staging/solefi'
+                sh 'cp -r build /hdd/apps/staging'
+                sh 'mv /hdd/apps/staging/build /hdd/apps/staging/solefi'
+                sh 'cp -r deploy /hdd/apps/staging/solefi'
             }
         }
         stage('Build Mobile App') {
@@ -56,8 +57,8 @@ pipeline {
                     sh 'cordova plugin add cordova-plugin-splashscreen'
                     sh 'cordova build android'
                 }
-                sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /var/www/apps/staging/solefi/static/app.apk'
-                sh 'chmod 777 /var/www/apps/staging/solefi/static/app.apk'
+                sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /hdd/apps/staging/solefi/static/app.apk'
+                sh 'chmod 777 /hdd/apps/staging/solefi/static/app.apk'
             }
         }
     }

@@ -13,12 +13,17 @@ import HowItWorksItem from 'src/modules/how-it-works/how-it-works-item/how-it-wo
 
 const HowItWorks = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const howItWorks = useSelector((state: any) => state.howItWorks);
-  const attr = howItWorks.data ? howItWorks.data.attributes ? howItWorks.data.attributes : {} : {};
-  const included = howItWorks.included ? howItWorks.included : [];
+  const howItWorksData = useSelector((state: any) => state.howItWorks);
+  const attr = howItWorksData.data ? howItWorksData.data.attributes ? howItWorksData.data.attributes : {} : {};
+  const howItWorksItems = howItWorksData.data && howItWorksData.data.relationships &&
+    howItWorksData.data.relationships.items && howItWorksData.data.relationships.items.data ?
+    howItWorksData.data.relationships.items.data : [];
 
   useEffect(() => {
-    const version = attr.version ? attr.version : 0;
+    let version = attr.version ? attr.version : 0;
+    if ( howItWorksItems.length && !howItWorksItems[0].attributes ) {
+      version = 0;
+    }
     fetchData( version )
       .then((d: any) => {
         if ( d ) dispatch(setHowItWorksData(d));
@@ -33,7 +38,7 @@ const HowItWorks = (): React.ReactElement => {
       { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
       { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
-        included.map((item: any, index: any ) => {
+        howItWorksItems.map((item: any, index: any ) => {
           return (
             <HowItWorksItem
               key={index}
