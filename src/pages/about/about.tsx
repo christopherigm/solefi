@@ -4,6 +4,7 @@ import NavBar from 'src/modules/nav-bar/nav-bar';
 import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
 import Mosaic from 'src/modules/mosaic/mosaic';
 import Footer from 'src/modules/footer/footer';
+import Contact from 'src/modules/square-contact/contact';
 
 const About = (): React.ReactElement => {
   return (
@@ -11,7 +12,7 @@ const About = (): React.ReactElement => {
       <NavBar />
       <HorizontalSpace size='large' />
       <Mosaic />
-      <HorizontalSpace size='medium' />
+      <Contact/>
       <Footer />
       <SystemCheck />
     </>

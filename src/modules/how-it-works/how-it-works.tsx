@@ -30,7 +30,7 @@ const HowItWorks = (): React.ReactElement => {
 
   return (
     <div className='container row'>
-      { attr.title ? <Title text = {attr.title} /> : null }
+      { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
       { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
         included.map((item: any, index: any ) => {
