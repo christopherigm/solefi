@@ -3,6 +3,7 @@ import 'src/modules/info-grid/info-grid-item/info-grid-item.scss';
 
 const InfoGridItem = (props: any): React.ReactElement => {
   const attr = props.attr;
+  if ( !attr ) return (<></>);
 
   return (
     <div className={`col s12 m6 l4 ${

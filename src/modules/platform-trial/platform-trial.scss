@@ -1,58 +1,50 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-
-.ContainerInfo {
-  background-image: linear-gradient(19deg, #0a2bb3, #24b1e6);
-  height: 350px;
-  width: 100%;
-  display: block;
-  position: relative;
-  margin: auto;
-  top: 300px;
-}
-.Platform {
-  margin: auto;
-  height: 300px;
-  width: 80%;
-  display: block;
-  position: relative;
-  top: -300px;
-  border-radius: 15px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.Content{
-  padding: 70px 50px 5px 50px;
-}
-.Info__Title{
-  font-size: $title-font-size;
-}
-.Info__text, .Info__list {
-  font-size: $regular-text;
-  margin-bottom: 20px;
-}
-.Info__button{
-  background-color: white;
-  width: fit-content + 5px;
-  margin-top: 15px;
-  padding: 5px 10px;
-}
-
-@media screen and (min-width:900px) {
-  .ContainerInfo {
-    width: 50%;
-    float: left;
-    top: 0;
+.PlatformTrialWrapper {
+  &--mini {
+    width: 100%;
+    margin-top: -40px;
+    padding-top: 70px;
+    background-image: linear-gradient(19deg, #0a2bb3, #24b1e6);
   }
-  .Platform {
-    margin: 0;
-    top: 25px;
-    width: 55%;
-    left: 45%;
-    border-radius: 15px 0px 0px 15px;
-    margin-bottom: 3em;
+}
+
+.PlatformTrial {
+  position: relative;
+
+  &__img {
+    height: 250px;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 0;
+    z-index: 1;
+  }
+  
+  &__text {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .PlatformTrial {
+    display: flex;
+    height: 75vh;
+
+    &__img {
+      top: 50px;
+      right: 0;
+      width: 55%;
+      max-width: none;
+      height: calc(100% - 100px);
+      border-radius: 15px 0px 0px 15px;
+      margin-bottom: 3em;
+    }
   }
 }

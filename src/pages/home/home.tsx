@@ -6,7 +6,6 @@ import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
 import InfoGrid from 'src/modules/info-grid/info-grid';
 import PlatformTrial from 'src/modules/platform-trial/platform-trial';
 import HowItWorks from 'src/modules/how-it-works/how-it-works';
-import Mosaic from 'src/modules/mosaic/mosaic';
 import Footer from 'src/modules/footer/footer';
 
 const Home = (): React.ReactElement => {
@@ -16,12 +15,9 @@ const Home = (): React.ReactElement => {
       <Slides />
       <HorizontalSpace size='large' />
       <InfoGrid/>
-      <HorizontalSpace size='large' />
       <PlatformTrial/>
       <HorizontalSpace size='x-large' />
       <HowItWorks/>
-      <HorizontalSpace size='large' />
-      <Mosaic/>
       <HorizontalSpace size='large' />
       <Footer />
       <SystemCheck />

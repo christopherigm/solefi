@@ -15,7 +15,6 @@ const Mosaic = ():React.ReactElement => {
   const dispatch = useDispatch();
   const mosaicData = useSelector((state: any) => state.mosaicData);
   const attr = mosaicData.data ? mosaicData.data.attributes ? mosaicData.data.attributes : {} : {};
-  // const included = infoGrid.included ? infoGrid.included : [];
 
   useEffect(() => {
     const version = attr.version ? attr.version : 0;
