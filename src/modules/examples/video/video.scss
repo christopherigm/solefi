@@ -1,0 +1,35 @@
+.Video {
+  background-color: gray;
+
+  &__wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 999;
+  }
+
+  &__video-element {
+    width: 500px;
+    height: 300px;
+    background-color: blueviolet;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &__close-big-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
