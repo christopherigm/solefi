@@ -5,6 +5,7 @@ import HorizontalSpace from 'src/modules/horizontal-space/horizontal-space';
 import Mosaic from 'src/modules/mosaic/mosaic';
 import Footer from 'src/modules/footer/footer';
 import MediaVideo from 'src/modules/media-video/media-video';
+import ButtonIcon from 'src/modules/Button/Button-Icon';
 
 const About = (): React.ReactElement => {
   return (
@@ -14,6 +15,7 @@ const About = (): React.ReactElement => {
       <Mosaic />
       <HorizontalSpace size='large' />
       <MediaVideo/>
+      <ButtonIcon/>
       <Footer />
       <SystemCheck />
     </>
