@@ -10,10 +10,9 @@ const About = (): React.ReactElement => {
   return (
     <>
       <NavBar />
-      <HorizontalSpace size='large' />
+      <MediaVideo/>
       <Mosaic />
       <HorizontalSpace size='large' />
-      <MediaVideo/>
       <Footer />
       <SystemCheck />
     </>
