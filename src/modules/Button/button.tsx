@@ -6,7 +6,7 @@ const Button = (props: any): React.ReactElement => {
       href='https://www.listo.mx/entrar'
       target='_blanck'
       style={{backgroundColor: props.color}}
-      className={`waves-effect btn pulse ${props.textcolor} Button`}>
+      className={`waves-effect btn ${props.textcolor} Button`}>
         <i className={`material-icons right ${props.textcolor} Button__icon`}>{props.icon}</i>
         {props.text}
     </a>
