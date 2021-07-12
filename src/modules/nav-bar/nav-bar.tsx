@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import * as M from 'materialize-css';
 import { useSelector } from 'react-redux';
 import 'src/modules/nav-bar/nav-bar.scss';
+import ClientAccess from 'src/modules/Button/client-access';
 
 const NavBar = (): React.ReactElement => {
   const sideNavRef: any = useRef(null);
@@ -48,6 +49,9 @@ const NavBar = (): React.ReactElement => {
               <li>
                 <Link className={textThemeClasses} to='/about'>Acerca</Link>
               </li>
+              <li>
+                <ClientAccess/>
+              </li>
             </ul>
           </div>
         </nav>
@@ -60,6 +64,9 @@ const NavBar = (): React.ReactElement => {
         </li>
         <li>
           <Link to='/about'>Acerca</Link>
+        </li>
+        <li>
+          <ClientAccess/>
         </li>
       </ul>
     </>

@@ -8,7 +8,7 @@ const MediaVideo = (): React.ReactElement => {
   const prefix = system.platform.prefix;
   const logoFile = '/play-button.svg';
   const logoUrl = `${prefix}${logoFile}`;
-  const imageFile = '/videobg.png';
+  const imageFile = '/parallaxbackground.jpg';
   const imageUrl = `${prefix}${imageFile}`;
 
 return (
