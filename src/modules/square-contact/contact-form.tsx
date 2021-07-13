@@ -4,12 +4,16 @@ import ContactItem from 'src/modules/square-contact/contact-item';
 import Title from 'src/modules/title/title';
 
 const ContactForm = (): React.ReactElement => {
+  const HideShadowTitle = false;
+
   return (
     <div className='ContactForm'>
     <div>
       <Title
         color='white'
-        text='Solefi a un click'/>
+        text='Solefi a un click'
+        shadow={HideShadowTitle}
+      />
     </div>
     <div className='container row ContactForm__info'>
     <div className='col s12 l4 ContactForm__block'>
