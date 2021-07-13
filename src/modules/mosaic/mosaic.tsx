@@ -16,6 +16,14 @@ const Mosaic = ():React.ReactElement => {
   const mosaicData = useSelector((state: any) => state.mosaicData);
   const attr = mosaicData.data ? mosaicData.data.attributes ? mosaicData.data.attributes : {} : {};
   const HideShadowTitle = false;
+  const system = useSelector((state: any) => state.system);
+  const prefix = system.platform.prefix;
+  const imageFile1 = '/team.jpg';
+  const imageUrl1 = `${prefix}${imageFile1}`;
+  const imageFile2 = '/clients.jpg';
+  const imageUrl2 = `${prefix}${imageFile2}`;
+  const imageFile3 = '/relax.jpg';
+  const imageUrl3 = `${prefix}${imageFile3}`;
 
   useEffect(() => {
     const version = attr.version ? attr.version : 0;
@@ -36,11 +44,11 @@ const Mosaic = ():React.ReactElement => {
       </div>
       <MosaicItem
         text1 = 'El mejor equipo multidiciplinario en Solefi'
-        imagen1 = 'https://cdn.pixabay.com/photo/2021/04/13/06/59/woman-6174830_960_720.jpg'
+        imagen1 = {imageUrl1}
         text2 = 'Más de 20 proyectos exitosos, más de 10 clientes satisfechos'
-        imagen2 = 'https://cdn.pixabay.com/photo/2021/03/29/12/16/stairs-6133971_960_720.jpg'
+        imagen2 = {imageUrl2}
         text3 = 'Tu puedes hacer esto, sin preocuparte por tus finanzas, basta con dar un click en nuestra Plataforma.'
-        imagen3 = 'https://cdn.pixabay.com/photo/2019/04/26/15/33/child-4157865_960_720.jpg'
+        imagen3 = {imageUrl3}
       />
     </>
   );
