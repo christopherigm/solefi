@@ -15,6 +15,7 @@ const Mosaic = ():React.ReactElement => {
   const dispatch = useDispatch();
   const mosaicData = useSelector((state: any) => state.mosaicData);
   const attr = mosaicData.data ? mosaicData.data.attributes ? mosaicData.data.attributes : {} : {};
+  const HideShadowTitle = false;
 
   useEffect(() => {
     const version = attr.version ? attr.version : 0;
@@ -30,7 +31,7 @@ const Mosaic = ():React.ReactElement => {
   return (
     <>
       <div className='container row'>
-        { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
+        { attr.title ? <Title text = {attr.title} color='#2196f3' shadow={HideShadowTitle}/> : null }
         { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       </div>
       <MosaicItem

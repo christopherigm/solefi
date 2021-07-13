@@ -18,6 +18,7 @@ const HowItWorks = (): React.ReactElement => {
   const howItWorksItems = howItWorksData.data && howItWorksData.data.relationships &&
     howItWorksData.data.relationships.items && howItWorksData.data.relationships.items.data ?
     howItWorksData.data.relationships.items.data : [];
+  const HideShadowTitle = false;
 
   useEffect(() => {
     let version = attr.version ? attr.version : 0;
@@ -35,7 +36,7 @@ const HowItWorks = (): React.ReactElement => {
 
   return (
     <div className='container row'>
-      { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
+      { attr.title ? <Title text = {attr.title} color='#2196f3' shadow={HideShadowTitle}/> : null }
       { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
         howItWorksItems.map((item: any, index: any ) => {

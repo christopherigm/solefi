@@ -40,7 +40,6 @@
 
   &__title {
     display: block;
-    text-align: center;
     font-weight: 200;
     font-size: $subtitle-font-size;
     font-weight: $subtitle-title-font-weight;
@@ -53,7 +52,6 @@
     margin-top: 10px;
     padding: 10px 20px;
     padding-bottom: 25px;
-    text-align: justify;
     font-size: $regular-text;
 
     p {

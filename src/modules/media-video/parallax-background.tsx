@@ -12,6 +12,7 @@ const ParallaxBackground = (props: any): React.ReactElement => {
   const videoFile = '/video.mp4';
   const videoURL = `${prefix}${videoFile}`;
   const videoRef: any = useRef(null);
+  const ShowShadowTitle = true;
 
   return (
     <div className='parallax-container'>
@@ -21,7 +22,7 @@ const ParallaxBackground = (props: any): React.ReactElement => {
       <div className='MediaVideo__img'>
         <div className='container row'>
         <div className='MediaVideo__title col s12'>
-          <Title text='Mira nuestro video corporativo' color='white'/>
+          <Title text='Mira nuestro video corporativo' color='white' shadow={ShowShadowTitle}/>
         </div>
         <div className='col s4 offset-s4'>
           <div

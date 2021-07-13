@@ -18,6 +18,7 @@ const InfoGrid = (): React.ReactElement => {
   const infoGridItems = infoGridData.data && infoGridData.data.relationships &&
     infoGridData.data.relationships.items && infoGridData.data.relationships.items.data ?
     infoGridData.data.relationships.items.data : [];
+  const HideShadowTitle = false;
 
   useEffect(() => {
     let version = attr.version ? attr.version : 0;
@@ -35,7 +36,7 @@ const InfoGrid = (): React.ReactElement => {
 
   return (
     <div className='container row'>
-      { attr.title ? <Title text = {attr.title} color='#2196f3'/> : null }
+      { attr.title ? <Title text = {attr.title} color='#2196f3' shadow={HideShadowTitle}/> : null }
       { attr.sub_title ? <SubTitle text = {attr.sub_title} /> : null }
       {
         infoGridItems.map((item: any) => {
