@@ -55,6 +55,7 @@ pipeline {
                     sh 'cordova platform add android'
                     sh 'cordova plugin add cordova-plugin-device'
                     sh 'cordova plugin add cordova-plugin-splashscreen'
+                    sh 'cordova plugin add cordova-plugin-statusbar'
                     sh 'cordova build android'
                 }
                 sh 'cp app/platforms/android/app/build/outputs/apk/debug/app-debug.apk /hdd/apps/staging/solefi/static/app.apk'
