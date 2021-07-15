@@ -15,6 +15,7 @@ const Home = (): React.ReactElement => {
       <Slides />
       <HorizontalSpace size='large' />
       <InfoGrid/>
+      <HorizontalSpace size='medium' />
       <PlatformTrial/>
       <HorizontalSpace size='x-large' />
       <HowItWorks/>
