@@ -1,22 +1,29 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-.PlatformTrialWrapper {
-  &--mini {
-    width: 100%;
-    margin-top: -40px;
-    padding-top: 70px;
-    background-image: linear-gradient(19deg, #0a2bb3, #24b1e6);
-  }
-}
+$gradient: linear-gradient(19deg, #0a2bb3, #24b1e6);
 
 .PlatformTrial {
   position: relative;
 
+  &__background {
+    &--mini {
+      width: 100%;
+      margin-top: -40px;
+      padding: 60px 0 30px;
+      background-image: $gradient;
+    }
+  
+    &--desktop {
+      background-image: $gradient;
+    }
+  }
+
   &__img {
-    height: 250px;
+    position: inherit;
+    height: 220px;
     width: 80%;
-    max-width: 400px;
+    max-width: 350px;
     margin: 0 auto;
     border-radius: 15px;
     background-position: center;
@@ -25,19 +32,34 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px 0;
     z-index: 1;
   }
-  
-  &__text {
-    max-width: 400px;
-    margin: 0 auto;
+
+  .Title {
+    margin-bottom: 15px;
+  }
+
+  &__button {
+    margin-top: 30px;
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
   .PlatformTrial {
-    display: flex;
-    height: 75vh;
+    height: 65vh;
+
+    &__background {
+      &--desktop {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+      }
+    }
+
+    &__desktop-info {
+      height: 100%;
+    }
 
     &__img {
+      position: absolute;
       top: 50px;
       right: 0;
       width: 55%;
@@ -45,6 +67,22 @@
       height: calc(100% - 100px);
       border-radius: 15px 0px 0px 15px;
       margin-bottom: 3em;
+    }
+
+    &__info {
+      position: relative;
+    }
+
+    &__text {
+      max-width: 290px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .PlatformTrial {
+    &__text {
+      max-width: 360px;
     }
   }
 }

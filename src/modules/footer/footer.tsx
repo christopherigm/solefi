@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import EnvironmentVariables from 'src/constants/EnvironmentVariables';
-import Contact from 'src/modules/square-contact/contact';
+import Contact from 'src/modules/contact/contact';
 
 const env = EnvironmentVariables.getInstance();
 const isMobileApp = env.isMobileApp;
