@@ -1,5 +1,4 @@
 import React from 'react';
-import 'src/modules/contact/contact-form.scss';
 
 const ContactItem = (props: any): React.ReactElement => {
   return (

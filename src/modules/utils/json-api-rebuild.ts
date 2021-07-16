@@ -8,6 +8,7 @@ const assignObject = ( object: any, included: any ): any => {
 };
 
 const checkObject = ( element: any, included: any): any => {
+  if ( !included ) return element;
   if ( Array.isArray(element.data) ) {
     for (let j = 0; j < element.data.length; j++) {
       element.data[j] = assignObject(element.data[j], included);

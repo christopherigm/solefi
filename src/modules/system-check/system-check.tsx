@@ -25,7 +25,7 @@ const SystemCheck = (): React.ReactElement => {
 
   const redirect = () => {
     if ( location.path === 'login' ) {
-      if ( login.id ) {
+      if ( login.false ) {
         history.replace({
           pathname: '/'
         });
