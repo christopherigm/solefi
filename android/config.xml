@@ -20,7 +20,7 @@
         <allow-intent href="market:*" />
         <splash src="splash.png" />
         <preference name="StatusBarBackgroundColor" value="#ffffff" />
-        <preference name="StatusBarStyle" value="lightcontent" />
+        <preference name="StatusBarStyle" value="blacktranslucent" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
