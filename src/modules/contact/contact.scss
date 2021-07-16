@@ -1,7 +1,7 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-.ContactForm {
+.Contact {
   display: block;
   padding-bottom: 10px;
 
@@ -26,6 +26,7 @@
     text-align: center;
     font-size: $regular-text;
     margin-bottom: 20px;
+    word-wrap: break-word;
   }
 
   &__textclick {
@@ -41,7 +42,7 @@
     box-shadow: 0 $white;
     transition-duration: 0.25s;
     text-align: center;
-    padding: 2em;
+    padding: 20px;
   }
 
   &__info i {

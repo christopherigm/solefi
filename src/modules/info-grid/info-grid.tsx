@@ -6,7 +6,7 @@ import {
   useDispatch
 } from 'react-redux';
 import setInfoGridData from 'src/modules/info-grid/redux/info-grid-actions';
-import fetctData from 'src/modules/info-grid/redux/fetch-info-grid-data';
+import fetchData from 'src/modules/info-grid/redux/fetch-info-grid-data';
 import Title from 'src/modules/title/title';
 import SubTitle from 'src/modules/sub-title/sub-title';
 import InfoGridItem from 'src/modules/info-grid/info-grid-item/info-grid-item';
@@ -25,14 +25,14 @@ const InfoGrid = (): React.ReactElement => {
     if ( infoGridItems.length && !infoGridItems[0].attributes ) {
       version = 0;
     }
-    fetctData( version )
+    fetchData( version )
       .then((d: any) => {
         if ( d ) dispatch(setInfoGridData(d));
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [fetctData]);
+  }, [fetchData]);
 
   return (
     <div className='container row'>

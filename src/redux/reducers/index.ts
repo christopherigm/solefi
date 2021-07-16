@@ -9,6 +9,7 @@ import InfoGridReducer from 'src/modules/info-grid/redux/info-grid-reducer';
 import SlidesReducer from 'src/modules/slides/redux/slides-reducer';
 import HowItWorks from 'src/modules/how-it-works/redux/how-it-works-reducer';
 import MosaicReducer from 'src/modules/mosaic/redux/mosaic-reducer';
+import PageReducer from 'src/pages/home/redux/page-reducer';
 
 const reducers = {
   user: UserReducer,
@@ -16,7 +17,8 @@ const reducers = {
   infoGrid: InfoGridReducer,
   slides: SlidesReducer,
   howItWorks: HowItWorks,
-  mosaicData: MosaicReducer
+  mosaicData: MosaicReducer,
+  page: PageReducer
 };
 
 export default combineReducers(reducers);

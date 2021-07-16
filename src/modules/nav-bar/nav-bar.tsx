@@ -3,21 +3,43 @@ import React, { useRef, useEffect } from 'react';
 import * as M from 'materialize-css';
 import { useSelector } from 'react-redux';
 import 'src/modules/nav-bar/nav-bar.scss';
-import ClientAccess from 'src/modules/Button/client-access';
+import ClientAccess from 'src/modules/client-access/client-access';
+
+const CommonMenuItems = (): React.ReactElement => {
+  return (
+    <>
+      <li>
+        <Link className='grey-text text-darken-2' to='/'>Inicio</Link>
+      </li>
+      <li>
+        <Link className='grey-text text-darken-2' to='/about'>Acerca</Link>
+      </li>
+      <li>
+        <ClientAccess/>
+      </li>
+    </>
+  );
+};
+
+const SideNavBar = ( props: any ): React.ReactElement => {
+  return (
+    <ul className='sidenav' id='mobile-demo'
+      ref={props.sideNavRef}
+      onClick={props.closeSideNav}>
+      <CommonMenuItems />
+    </ul>
+  );
+};
 
 const NavBar = (): React.ReactElement => {
   const sideNavRef: any = useRef(null);
-  const system = useSelector((state: any) => state.system);
-  const prefix = system.platform.prefix;
-  const logoFile = '/logo.svg';
-  const logoURL = `${prefix}${logoFile}`;
+  const pageData = useSelector((state: any) => state.page);
+  const pageAttr: any = pageData.data ? pageData.data.attributes ? pageData.data.attributes : {} : {};
 
   const closeSideNav = () => {
     const sideNav = M.Sidenav.getInstance(sideNavRef.current);
     sideNav.close();
   };
-
-  const textThemeClasses = system.darkMode ? 'white-text' : ' grey-text text-darken-4';
 
   useEffect(() => {
     M.Sidenav.init(sideNavRef.current, {
@@ -28,13 +50,13 @@ const NavBar = (): React.ReactElement => {
   return (
     <>
       <div className='navbar-fixed'>
-        <nav className={ system.darkMode ? 'grey darken-4' : 'white grey-text text-darken-4' }>
+        <nav className='white'>
           <div className='nav-wrapper container'>
             <Link
               to='/'
               className='brand-logo Logo'
               style={{
-                backgroundImage: `url(${logoURL})`
+                backgroundImage: `url(${pageAttr.img_logo})`
               }}>
             </Link>
             <a href='#'
@@ -42,33 +64,18 @@ const NavBar = (): React.ReactElement => {
               className='sidenav-trigger blue-text text-darken-2'>
               <i className='material-icons'>menu</i>
             </a>
-            <ul id='nav-mobile' className='right hide-on-med-and-down'>
-              <li>
-                <Link className={textThemeClasses} to='/'>Inicio</Link>
-              </li>
-              <li>
-                <Link className={textThemeClasses} to='/about'>Acerca</Link>
-              </li>
-              <li>
-                <ClientAccess/>
-              </li>
+            <ul
+              id='nav-mobile'
+              className='right hide-on-med-and-down'>
+              <CommonMenuItems />
             </ul>
           </div>
         </nav>
       </div>
-      <ul className='sidenav' id='mobile-demo'
-        ref={sideNavRef}
-        onClick={closeSideNav}>
-        <li>
-          <Link to='/'>Inicio</Link>
-        </li>
-        <li>
-          <Link to='/about'>Acerca</Link>
-        </li>
-        <li>
-          <ClientAccess/>
-        </li>
-      </ul>
+      <SideNavBar
+        sideNavRef={sideNavRef}
+        closeSideNav={closeSideNav}
+        pageAttr={pageAttr}/>
     </>
   );
 };
