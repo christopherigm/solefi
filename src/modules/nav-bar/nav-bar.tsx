@@ -5,9 +5,15 @@ import { useSelector } from 'react-redux';
 import 'src/modules/nav-bar/nav-bar.scss';
 import ClientAccess from 'src/modules/client-access/client-access';
 
-const CommonMenuItems = (): React.ReactElement => {
+const CommonMenuItems = ( props: any ): React.ReactElement => {
   return (
     <>
+      <li>
+        <em
+          className='SideNavBar__logo hide-on-large-only'style={{
+          backgroundImage: `url(${props.img_logo})`
+        }}></em>
+      </li>
       <li>
         <Link className='grey-text text-darken-2' to='/'>Inicio</Link>
       </li>
@@ -22,11 +28,13 @@ const CommonMenuItems = (): React.ReactElement => {
 };
 
 const SideNavBar = ( props: any ): React.ReactElement => {
+  const img_logo = props.pageAttr.img_logo;
+
   return (
-    <ul className='sidenav' id='mobile-demo'
+    <ul className='sidenav SideNavBar' id='mobile-demo'
       ref={props.sideNavRef}
       onClick={props.closeSideNav}>
-      <CommonMenuItems />
+      <CommonMenuItems img_logo={img_logo} />
     </ul>
   );
 };

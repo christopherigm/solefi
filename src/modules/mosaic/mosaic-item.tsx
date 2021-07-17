@@ -5,7 +5,9 @@ const MosaicItem = ( props: any ): React.ReactElement => {
   const item = props.item;
 
   return (
-    <div className='container'>
+    <div className={`container ${
+        item.hide_on_mobile ? 'hide-on-small-only' : null
+      }`}>
       <div className='MosaicItem row'>
         {
           item.image_position === 'left' ?

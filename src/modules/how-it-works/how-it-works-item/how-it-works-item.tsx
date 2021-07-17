@@ -9,9 +9,10 @@ const HowItWorksItem = (props: any): React.ReactElement => {
 
   return (
     <div
-      className='col s12 m6 l4'
-      key={props.number}
-      >
+      className={`col s12 m6 l4 ${
+        attr.hide_on_mobile ? 'hide-on-small-only' : null
+      }`}
+      key={props.number}>
       <div className='HowItWorksItem z-depth-3'>
         <div className='HowItWorksItem__img'
           style = {{backgroundImage: `url(${attr.img_picture})`}}>
