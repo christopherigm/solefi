@@ -1,29 +1,45 @@
-import React from 'react';
+import React, {
+  useEffect,
+  useRef
+} from 'react';
 import { useSelector } from 'react-redux';
+import * as M from 'materialize-css';
 import EnvironmentVariables from 'src/constants/EnvironmentVariables';
 import Contact from 'src/modules/contact/contact';
+import 'src/modules/footer/footer.scss';
 
 const env = EnvironmentVariables.getInstance();
 const isMobileApp = env.isMobileApp;
 
 const Footer = (): React.ReactElement => {
   const system = useSelector((state: any) => state.system);
+  const versionRef: any = useRef(null);
+
+  useEffect(() => {
+    M.Tooltip.init(versionRef.current, {});
+  });
 
   return (
     <footer className='page-footer blue Footer'>
       <Contact/>
-      <div className='footer-copyright Footer__copyright'>
-        <div className='container'>
-          <span>V. {env.version} ({system.platform.os} - {env.branchName} build) </span>
-          { !isMobileApp ?
-            <>
-            - <a
+      <div className='footer-copyright'>
+        <div className='container Footer__info'>
+          <div
+            className='Footer__version'
+            ref={versionRef}
+            data-position='top'
+            data-tooltip={`(${system.platform.os} - ${env.branchName})`}>
+            <span>Version {env.version}</span>
+            { !isMobileApp ?
+              <a
                 href='/static/app.apk'
-                className='white-text'
-              >Get mobile App</a>
-            </>
-            : null
-          }
+                className='white-text Footer__app'>
+                <span> - Obtener Android App </span>
+                <i className='material-icons'>android</i>
+              </a> : null
+            }
+          </div>
+          <span>Hecho con ♥ por Edgar y Chris Guzman</span>
         </div>
       </div>
     </footer>

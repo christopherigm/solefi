@@ -1,62 +1,64 @@
 @import 'materialize-css';
 @import 'src/constants/Constants.scss';
 
-.Mosaic{
+.MosaicItem {
   display: block;
+  margin-top: 40px;
 
-  &__Information {
-    display: flex;
-    background-image: linear-gradient(70deg, #0a2bb3, #23a5d7);
-    height: 130px;
+  .col {
+    padding: 0 !important;
   }
 
-  &__Information2 {
+  &__information {
     display: flex;
-    background-image:  linear-gradient(42deg, #3023AE, #C86DD7);
-    height: 130px;
   }
 
-  &__Image {
+  &__image-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__image {
     display: block;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 280px;
+    width: 100%;
   }
 
   &__text {
-    height: auto;
     display: block;
+    width: 100%;
     line-height: 1.5em;
     padding: 0 20px;
     text-align: center;
-    color: white;
     font-size: $regular-text;
+    @extend .white-text;
   }
 }
 
-@media screen and (min-width:600px) {
-  .Mosaic{
-    display: block;
-    &__Information {
+@media screen and (min-width: 601px) {
+  .MosaicItem {
+    &__information {
       height: 280px;
-      border-top: 5px solid white;
-      border-bottom: 5px solid white;
-      border-left: 20px solid white;
-      border-right:20px solid white;
     }
-    &__Information2 {
-      height: 280px;
-      border-top: 5px solid white;
-      border-bottom: 5px solid white;
-      border-left: 20px solid white;
-      border-right:20px solid white;
+
+    &__image {
+      width: calc(100% - 40px);
     }
-    &__Image {
-      border-top: 5px solid white;
-      border-bottom: 5px solid white;
-      border-left: 20px solid white;
-      border-right:20px solid white;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .MosaicItem {
+    &__information,
+    &__image {
+      height: 300px;
+    }
+
+    &__text {
+      padding: 0 30px;
     }
   }
 }

@@ -1,0 +1,16 @@
+@import 'materialize-css';
+@import 'src/constants/Constants.scss';
+
+.Footer {
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__version,
+  &__app {
+    display: flex;
+    flex-direction: row;
+  }
+}
