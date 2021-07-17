@@ -13,4 +13,8 @@
     display: flex;
     flex-direction: row;
   }
+  
+  &__version {
+    cursor: pointer;
+  }
 }

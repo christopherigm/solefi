@@ -10,7 +10,7 @@ const ClientAccess = (): React.ReactElement => {
       href={pageAttr.platform_link}
       target='_blank'
       rel='noreferrer'
-      className='waves-effect btn ${props.textcolor} blue lighten-2 white-text'>
+      className='waves-effect btn blue lighten-2 white-text ClientAccess'>
       <i className='material-icons right white-text'>vpn_key</i>
       Clientes
     </a>
