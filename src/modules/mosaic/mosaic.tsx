@@ -10,6 +10,7 @@ import fetchData from 'src/modules/mosaic/redux/fetch-mosaic-data';
 import Title from 'src/modules/title/title';
 import SubTitle from 'src/modules/sub-title/sub-title';
 import MosaicItem from 'src/modules/mosaic/mosaic-item';
+import innerSort from 'src/modules/utils/inner-sort';
 
 const Mosaic = ():React.ReactElement => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Mosaic = ():React.ReactElement => {
   const mosaicItems = mosaicData.data && mosaicData.data.relationships &&
     mosaicData.data.relationships.items && mosaicData.data.relationships.items.data ?
     mosaicData.data.relationships.items.data : [];
+  mosaicItems ? mosaicItems.sort(innerSort('order')) : null;
 
   useEffect(() => {
     let version = attr.version ? attr.version : 0;

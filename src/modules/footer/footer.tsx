@@ -29,17 +29,17 @@ const Footer = (): React.ReactElement => {
             ref={versionRef}
             data-position='top'
             data-tooltip={`(${system.platform.os} - ${env.branchName})`}>
-            <span>Version {env.version}</span>
+            <span>V {env.version}</span>
             { !isMobileApp ?
               <a
                 href='/static/app.apk'
                 className='white-text Footer__app'>
-                <span> - Obtener Android App </span>
+                <span> - </span>
                 <i className='material-icons'>android</i>
               </a> : null
             }
           </div>
-          <span>Hecho con ♥ por Edgar y Chris Guzman</span>
+          <span>With ♥ by Edgar y Chris G.</span>
         </div>
       </div>
     </footer>
