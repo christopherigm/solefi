@@ -1,4 +1,5 @@
 import { APIGet } from 'src/api/communicator';
+import rebuildData from 'src/modules/utils/json-api-rebuild';
 
 const dataId = 'mosaic';
 const versionCheckURL = `info-grids/?filter[name]=${dataId}&fields[InfoGrid]=version`;
@@ -8,7 +9,7 @@ const getData = ( url: string ): Promise<any> => {
   return new Promise((res, rej) => {
     APIGet( url )
       .then((d: any) => {
-        res(d);
+        res(rebuildData(d));
       })
       .catch((error) => {
         rej(error);

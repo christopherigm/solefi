@@ -25,7 +25,8 @@ const persistConfig = {
     'infoGrid',
     'slides',
     'howItWorks',
-    'mosaicData'
+    'mosaicData',
+    'page'
   ]
 };
 
