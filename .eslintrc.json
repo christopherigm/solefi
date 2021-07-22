@@ -1,9 +1,18 @@
 {
   "parser": "babel-eslint",
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "env": {
     "node": true,
     "browser": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -16,7 +25,7 @@
     "max-lines-per-function": [
       "error",
       { 
-        "max": 30, 
+        "max": 70, 
         "skipBlankLines": true,
         "skipComments": true 
       }
@@ -88,8 +97,7 @@
   "overrides": [
     {
       "files": [
-        "*test.js",
-        "webpack.config.js"
+        "*test.js"
       ],
       "rules": {
         "max-lines-per-function": "off",

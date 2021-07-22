@@ -1,9 +1,9 @@
 How to use it
 
-$ ./uninstall.sh [parameters]
+$ ./install.sh [parameters]
 
 Parameter       Name                Example
 
 -d              DNS                 my-web-app.com
--p              Port                4000
+-f              Folder              my-web-app
 -e              Environment         qa          

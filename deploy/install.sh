@@ -9,95 +9,75 @@ then
     exit 0;
 fi
 
-while getopts d:f:n:p:e: flag
+while getopts d:f:e: flag
 do
     case "${flag}" in
         d) dns=${OPTARG};;
         f) folder=${OPTARG};;
-        n) porcess_name=${OPTARG};;
-        p) port=${OPTARG};;
         e) envt=${OPTARG};;
     esac
 done
 
 # ============ Functions ============
 # $1 type -> nginx / supervisor
-# $2 environment
-# $3 dns
-# $4 port
 PopulateFile () {
-    file_name="$4.$3.$2.conf";
-    cp $1.conf $file_name;
-    sed -i "s/PORT/$4/gi" $file_name;
-    sed -i "s/DNS/$3/gi" $file_name;
-    sed -i "s/ENVT/$2/gi" $file_name;
-    sed -i "s/FOLDER/$folder/gi" $file_name;
-    sed -i "s/PROCESS_NAME/$porcess_name/gi" $file_name;
+    file_name="$dns.conf";
+    cp "$1.conf" $file_name;
+    chmod 775 $file_name;
+    sed -i "s/DNS/$dns/g" $file_name;
+    sed -i "s/ENVT/$envt/g" $file_name;
+    sed -i "s/FOLDER/$folder/g" $file_name;
 }
 
 if [ ! -n "$dns" ]
 then
-	echo "Error: DNS variable not provided: -d my-web-app.com";
+	echo "Error: DNS variable not provided: -d example.com";
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$folder" ]
 then
-	echo "Error: folder variable not provided: -f my-web-app";
-    echo $show_help_message;
-    exit 1;
-fi
-if [ ! -n "$porcess_name" ]
-then
-	echo "Error: porcess name variable not provided: -n my_web_app";
-    echo $show_help_message;
-    exit 1;
-fi
-if [ ! -n "$port" ]
-then
-	echo "Error: port variable not provided: -p 4000";
+	echo "Error: folder variable not provided: -f web-app";
     echo $show_help_message;
     exit 1;
 fi
 if [ ! -n "$envt" ]
 then
-	echo "Error: environtment variable not provided: -e qa";
+	echo "Error: environtment variable not provided: -e staging";
     echo $show_help_message;
     exit 1;
 fi
 
-echo "Deploy Nginx configuration? (y/n)"
-read deploy
+echo "Create Nginx configuration? (y/n)";
+read create;
 
-if [ "$deploy" == "y" ]
+if [ "$create" == "y" ]
 then
-	PopulateFile "nginx" "$envt" "$dns" "$port";
-    sudo cp ./$file_name /etc/nginx/sites-available/;
-    sudo ln -s /etc/nginx/sites-available/$file_name /etc/nginx/sites-enabled/;
-    sudo nginx -t;
-    sudo service nginx restart;
+	PopulateFile "nginx";
     echo "======================================";
     echo "$file_name:";
     cat $file_name;
     echo "======================================";
-    rm ./$file_name;
+    echo "Deploy Nginx configuration? (y/n)";
+    read deploy;
+    if [ "$deploy" == "y" ]
+    then
+        sudo apt update;
+        sudo apt -y upgrade;
+        sudo apt -y autoremove;
+        sudo apt install nginx;
+        sudo cp ./$file_name /etc/nginx/sites-available/;
+        sudo ln -s /etc/nginx/sites-available/$file_name /etc/nginx/sites-enabled/;
+        sudo nginx -t;
+        sudo service nginx restart;
+    fi
+    echo "Delete Nginx configuration? (y/n)"
+    read delete_file;
+    if [ "$delete_file" == "y" ]
+    then
+        rm "$file_name";
+    fi
 fi
 
-echo "Deploy Supervisor configuration? (y/n)"
-read deploy
-if [ "$deploy" == "y" ]
-then
-    PopulateFile "supervisor" "$envt" "$dns" "$port";
-    sudo cp ./$file_name /etc/supervisor/conf.d/;
-    sudo supervisorctl reread;
-    sudo supervisorctl update;
-    sudo supervisorctl status;
-    echo "======================================";
-    echo $file_name;
-    cat $file_name;
-    echo "======================================";
-    rm ./$file_name;
-fi
-
-echo "Done"
+echo "Done";
 exit 0;
