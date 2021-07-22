@@ -62,10 +62,6 @@ then
     read deploy;
     if [ "$deploy" == "y" ]
     then
-        sudo apt update;
-        sudo apt -y upgrade;
-        sudo apt -y autoremove;
-        sudo apt install nginx;
         sudo cp ./$file_name /etc/nginx/sites-available/;
         sudo ln -s /etc/nginx/sites-available/$file_name /etc/nginx/sites-enabled/;
         sudo nginx -t;
