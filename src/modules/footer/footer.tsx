@@ -1,6 +1,4 @@
-import React, {
-  useRef
-} from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import * as M from 'materialize-css';
 import EnvironmentVariables from 'src/constants/EnvironmentVariables';
@@ -12,7 +10,6 @@ const isMobileApp = env.isMobileApp;
 
 const Footer = (): React.ReactElement => {
   const system = useSelector((state: any) => state.system);
-  const versionRef: any = useRef(null);
 
   return (
     <footer className='page-footer blue Footer'>
@@ -21,7 +18,6 @@ const Footer = (): React.ReactElement => {
         <div className='container Footer__info'>
           <div
             className='Footer__version'
-            ref={versionRef}
             onClick={() => {
               M.toast({
                 html: `(${system.platform.os} - ${env.branchName})`,
