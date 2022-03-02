@@ -1,38 +1,27 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from 'src/redux/store';
+import store from 'src/redux/store';
 import Home from 'src/pages/home/home';
 import About from 'src/pages/about/about';
 import ActivateUser from 'src/pages/activate-user/activate-user';
 
-const Routes = (): React.ReactElement => {
+const AppRoutes = (): React.ReactElement => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/activate/:token">
-          <Provider store={store}>
-            <ActivateUser />
-          </Provider>
-        </Route>
-        <Route path='/about'>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}><About /></PersistGate>
-          </Provider>
-        </Route>
-        <Route path='/'>
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}><Home /></PersistGate>
-          </Provider>
-        </Route>
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/activate/:token' element={<ActivateUser />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 };
 
-export default Routes;
+export default AppRoutes;

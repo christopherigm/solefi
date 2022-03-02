@@ -15,9 +15,9 @@ import fetchData from 'src/modules/slides/redux/fetch-slides-data';
 import 'src/modules/slides/slides.scss';
 import WhiteTextBox from 'src/modules/white-text-box/white-text-box';
 
-const triangleFile = '/white-triangle.png';
-const sliderNextButtonFile = '/slider-button-next.svg';
-const sliderPrevButtonFile = '/slider-button-prev.svg';
+const triangleFile = '/assets/white-triangle.png';
+const sliderNextButtonFile = '/assets/slider-button-next.svg';
+const sliderPrevButtonFile = '/assets/slider-button-prev.svg';
 
 const SlideAddons = ( props: any ): React.ReactElement => {
   const system = useSelector((state: any) => state.system);

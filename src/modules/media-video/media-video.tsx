@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 const MediaVideo = (): React.ReactElement => {
   const system = useSelector((state: any) => state.system);
   const prefix = system.platform.prefix;
-  const logoFile = '/play-button.svg';
+  const logoFile = '/assets/play-button.svg';
   const logoUrl = `${prefix}${logoFile}`;
-  const imageFile = '/parallaxbackground.jpg';
+  const imageFile = '/assets/parallaxbackground.jpg';
   const imageUrl = `${prefix}${imageFile}`;
 
 return (
