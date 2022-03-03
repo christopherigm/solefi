@@ -98,14 +98,16 @@ getBranchName()
   .then(() => publishDockerImage())
   .then(() => triggerJenkinsJob())
   .then((response) => {
-    if ( response && response.jobs &&
-      response.jobs.Solefi &&
-      response.jobs.Solefi.triggered ) {
-      console.log('\nProces completed!:', response.message);
-      console.log(`\nImage: ${registry}/${name}:${branch}`);
-    } else {
-      console.log('\nError triggering Jenkins job:', response.response.statusText);
-      console.log(`\nImage: ${registry}/${name}:${branch}`);
+    if ( response && response.jobs && typeof response.jobs === 'object' ) {
+      for (const key in response.jobs) {
+        if (Object.hasOwnProperty.call(response.jobs, key)) {
+          const element = response.jobs[key];
+          if ( element && element.triggered ) {
+            console.log('\nProces completed!:', response.message);
+            console.log(`\nImage: ${registry}/${name}:${branch}`);
+          }
+        }
+      }
     }
     const endTime = new Date(Date.now());
     const difference = (((endTime - startTime) / 100 ) / 60) / 60;

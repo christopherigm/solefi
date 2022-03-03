@@ -25,7 +25,6 @@ const Home = (): React.ReactElement => {
     const version = attr.version ? attr.version : 0;
     fetchData( version )
       .then((d: any) => {
-        console.log('Page data:', d, pageData);
         if ( d ) dispatch(setPageData(d));
       })
       .catch((error) => {

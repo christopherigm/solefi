@@ -1,3 +1,6 @@
+/* eslint-disable max-lines-per-function */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-lines */
 import React, {
   useEffect,
   useState
@@ -39,7 +42,8 @@ const SlideAddons = ( props: any ): React.ReactElement => {
         className='Swiper__navigation-button Swiper__navigation-button--right z-depth-2'
         style={{ backgroundImage: `url(${sliderNextButtonFileURL})` }}
         onClick={() => {
-          if ( swiper ) swiper.slideNext();
+          console.log('next', swiper);
+          swiper.slideNext();
         }}></div>
       <div className='swiper-pagination'></div>
       <div
@@ -54,23 +58,18 @@ const SlideAddons = ( props: any ): React.ReactElement => {
 };
 
 const Slide = (): React.ReactElement => {
-  const dispatch = useDispatch();
   const slidesData = useSelector((state: any) => state.slides);
-  const attr = slidesData.data ? slidesData.data.attributes ? slidesData.data.attributes : {} : {};
   const slides = slidesData.data && slidesData.data.relationships &&
     slidesData.data.relationships.items && slidesData.data.relationships.items.data ?
     slidesData.data.relationships.items.data : [];
+  const dispatch = useDispatch();
   const [text, setText] = useState('');
-  const [swiperReference, setSwiperReference]: any = useState('');
+  const [swiperReference, setSwiperReference]: any = useState(null);
 
   useEffect(() => {
-    let version = attr.version ? attr.version : 0;
-    if ( slides.length && !slides[0].attributes ) {
-      version = 0;
-    }
-    fetchData( version )
-      .then((d: any) => {
-        if ( d ) dispatch(setSlidesData(d));
+    fetchData()
+      .then((data: any) => {
+        dispatch(setSlidesData(data));
       })
       .catch((error) => {
         console.log(error);
@@ -78,27 +77,40 @@ const Slide = (): React.ReactElement => {
   }, [fetchData]);
 
   const updateText = ( swiper: any ) => {
-    const page = Number(swiper.realIndex);
-    setText(slides.length ? slides[page].attributes.description : '');
+    const page = swiper && swiper.realIndex ? Number(swiper.realIndex) : 0;
+    setText(slides && slides.length &&
+      slides[page] && slides[page].attributes &&
+      slides[page].attributes.description ?
+      slides[page].attributes.description : '');
+  };
+
+  const onSwiper = ( swiper: any ) => {
     setSwiperReference(swiper);
+    const page = swiper && swiper.realIndex ? Number(swiper.realIndex) : 0;
+    setText(slides[page].attributes.description);
   };
 
   return (
     <>
       <Swiper
-        className='Swiper' autoplay={true} effect='fade' spaceBetween={0} slidesPerView={1} loop={true}
-        onSlideChange={updateText} pagination={{
+        className='Swiper'
+        autoplay={true}
+        effect='slide'
+        spaceBetween={0}
+        slidesPerView={1}
+        loop={true}
+        onSlideChange={updateText}
+        pagination={{
           el: '.swiper-pagination', type: 'bullets', clickable: true
         }}
-        onSwiper={updateText}
+        onSwiper={onSwiper}
       >
         {
           slides.map((item: any, index: any ) => {
             if ( !item.attributes ) return null;
             return (
-              <SwiperSlide
+              <SwiperSlide key={index}
                 className='Swiper__slide'
-                key={index}
                 virtualIndex={index}>
                 <div
                   className='Swiper__content'
