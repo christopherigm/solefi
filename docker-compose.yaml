@@ -9,7 +9,7 @@ services:
     #   - REACT_APP_FACEBOOK_APP_ID=${REACT_APP_FACEBOOK_APP_ID}
     #   - REACT_APP_PRODUCTION=${REACT_APP_PRODUCTION}
     volumes:
-      - /solefi/static:/static
-      - /solefi/assets:/assets
+      - /apps/solefi/static:/static
+      - /apps/solefi/assets:/assets
     ports:
       - "${PUBLIC_PORT}:3000"
