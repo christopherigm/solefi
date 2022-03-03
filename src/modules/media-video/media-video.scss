@@ -14,7 +14,6 @@
 }
 
 .MediaVideo {
-
   &__img {
     background-color: rgba(2, 57, 209, 0.5);
     height: 500px;
@@ -42,7 +41,7 @@
     background-repeat: no-repeat;
   }
 
-  &__videocontainer{
+  &__videocontainer {
     z-index: 1010;
     position: relative;
     display: block;
