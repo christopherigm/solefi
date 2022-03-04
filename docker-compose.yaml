@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   solefi:
-    image: registry.vaggustudios.com/solefi:${BRANCH}
+    image: registry.iguzman.com.mx/solefi:${BRANCH}
     restart: unless-stopped
     # environment:
     #   - REACT_APP_API_URL=${REACT_APP_API_URL}
