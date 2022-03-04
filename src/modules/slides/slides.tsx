@@ -42,7 +42,6 @@ const SlideAddons = ( props: any ): React.ReactElement => {
         className='Swiper__navigation-button Swiper__navigation-button--right z-depth-2'
         style={{ backgroundImage: `url(${sliderNextButtonFileURL})` }}
         onClick={() => {
-          console.log('next', swiper);
           swiper.slideNext();
         }}></div>
       <div className='swiper-pagination'></div>
